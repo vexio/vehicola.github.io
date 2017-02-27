@@ -1,3 +1,76 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
-<title>bryce | downloads</title>
+	<title>bryce | downloads</title>
+<head>
+	<div style="background-color:#407BC9;color:#407BC9;padding:15px;"><font size="+8" color="#00000" font face="Comic Sans MS"><b><center><i>bryce hoffhous</i></center></b></font></div>
+<style>
+body {
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/#">home</a>
+  <a href="/about">about me</a>
+  <a href="/downloads">downloads</a>
+  <a href="http://www.twitter.com/brycehoffhous">twitter</a>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; navigation</span>
+
+  <h1><center><font size="+6"><b>downloads</b></font></center></h1>
+  <p><center><font size="+1"> ▸ source code <b><a href="https://github.com/Vehicola/vehicola.github.io">github page</a></b></font></center></p>
+  <p><center><font size="+1"> ▸ whatever else i decide to put here</font></center></p>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+     
+</body>
+</html> 
