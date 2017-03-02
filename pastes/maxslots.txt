@@ -1,0 +1,23 @@
+options:
+	p: &6&l(!)&7
+	t: &7
+	h: &a
+command /maxslots [<integer>]:
+	permission: rank.host
+	trigger:
+		if arg 1 is set:
+			if arg 1 is greater than 120:
+				send "&4&lERROR &6%arg-1%&c is too large of a number."
+			#else if arg 1 is less than 32:
+			#	send "&4&lERROR &6%arg-1%&c is too small of a number."
+			else:
+				send "{@p} Max slots have been set to {@h}%arg-1%{@t}."
+				set {ms.maxSlots} to arg-1
+			stop
+		else if arg 1 is not set:
+			send "&cUsage: /maxslots [integer]"
+on connect:
+	if player doesn't have permission "rank.host" or "rank.mod" or "rank.srmod" or "rank.srhost" or "rank.admin" or "rank.director":
+		if amount of players is greater than or equal to {ms.maxSlots}:
+			if {teams.wlReserved::%event-player%} is not set:
+				kick event-player due to "&4The server is full!"
