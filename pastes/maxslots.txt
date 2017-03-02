@@ -8,7 +8,7 @@ command /maxslots [<integer>]:
 		if arg 1 is set:
 			if arg 1 is greater than 120:
 				send "&4&lERROR &6%arg-1%&c is too large of a number."
-			#else if arg 1 is less than 32:
+			#else if arg 1 is less than 16:
 			#	send "&4&lERROR &6%arg-1%&c is too small of a number."
 			else:
 				send "{@p} Max slots have been set to {@h}%arg-1%{@t}."
