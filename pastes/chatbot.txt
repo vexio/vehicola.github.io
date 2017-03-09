@@ -1,6 +1,6 @@
 options:
 #=============[ DO NOT TOUCH HERE ]=============
-	version: 1.0
+	version: 1.1
 	serverVersion: 7
 	# options
 	# 7 = Minecraft 1.7
@@ -147,8 +147,11 @@ command /helpop [<text>]:
 				send "{@p}Skybasing &r&7» &aSkybasing is &lallowed&a until &eMeetup&a."
 				send "{@p}Skybasing &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
 			else:
-				#send "{@helpOp}%sender% &7» &d%arg-1%" to sender
-				json("%{helpops::*}%", "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6.||ttp:&6Use &e&n/hr [player] [message]&r&6 to reply.||sgt:/hr %sender% ")
+			#	#send "{@helpOp}%sender% &7» &d%arg-1%" to sender
+			#	if {@serverVersion} = 8:
+			#		json("%{helpops::*}%", "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6.||ttp:&6Use &e&n/hr [player] [message]&r&6 to reply.||sgt:/hr %sender% ")
+			#	else if {@serverVersion} = 7:
+			#		send json of "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6." tooltip "&6Use &e&n/hr [player] [message]&r&6 to reply." suggest "/hr %sender% " to {helpops::*}
 				set {helpop.NoAnswer::%sender%} to true
 command /helpopReply [<player>] [<text>]:
 	aliases: /hr
@@ -171,7 +174,7 @@ on join:
 	if "%{helpops::*}%" does not contain "%event-player%":
 		if player has permission "rank.host" or "rank.mod" or "rank.srhost" or "rank.srmod" or "rank.admin" or "rank.director":
 			add event-player to {helpops::*}
-			json("%event-player%", "{@p}&r&aYou can now see Helpops. To not see helpops, ||&e&lClick Here&r&a.||ttp:&6Click to toggle Helpops||cmd:/helpops")
+			#json("%event-player%", "{@p}&r&aYou can now see Helpops. To not see helpops, ||&e&lClick Here&r&a.||ttp:&6Click to toggle Helpops||cmd:/helpops")
 		else:
 			if "%{helpops::*}%" contains "%event-player%":
 				remove event-player from {helpops::*}
