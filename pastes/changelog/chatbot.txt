@@ -1,1 +1,1 @@
-Added "Skybasing" and fixed errors with "Crossteaming"
+Changed prefixes and other minor additions
