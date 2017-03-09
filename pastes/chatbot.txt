@@ -6,7 +6,7 @@ options:
 	# 7 = Minecraft 1.7
 	# 8 = Minecraft 1.8
 #=============[ YOU CAN TOUCH HERE NOW ]=============
-	p: &4&lCHATBOT &c&o
+	p: &4&lBOT &c&o
 	helpOp: &4&lHELPOP &b
 	t: &f
 	h: &a
@@ -186,7 +186,7 @@ on join:
 	if event-player has permission "rank.director" or "rank.host" or "rank.admin":
 		if {chatbot.newUpdate} is true:
 			wait 1 second
-			send "&4&lUPDATE &aChatbot &7has a new update! &8(&b{chat.newVersion}&8)" to event-player
+			send "&4&lUPDATE &aChatbot &7has a new update! &8(&bv%{chatbot.newVersion}%&8)" to event-player
 			send "&4&lUPDATE &7Changelogs: &f&o%{chatbot.updates}%" to event-player
 			send "&4&lUPDATE &7Download: &dhttp://bryce.hoffho.us/pastes/chatbot.txt" to event-player
 on quit:
