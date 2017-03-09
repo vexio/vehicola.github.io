@@ -1,6 +1,6 @@
 options:
 #=============[ DO NOT TOUCH HERE ]=============
-	version: 1.1
+	version: 1.0
 	serverVersion: 7
 	# options
 	# 7 = Minecraft 1.7
@@ -42,13 +42,18 @@ options:
 on load:
 	delete {chatbot.updates}
 	send "[Chatbot] Enabling Pixelbite Chatbot..." to console
-	send "[Chatbot] Current Version {@version}"
-	send "[Chatbot] Created by Vexio"
+	send "[Chatbot] Current Version {@version}" to console
+	send "[Chatbot] Created by Vexio" to console
 	wait 1 second
-	send "[Chatbot] Checking for new updates..."
+	send "[Chatbot] Checking for new updates..." to console
 	set {_newVersion} to text from "http://bryce.hoffho.us/pastes/versions/chatbot.txt"
 	if "%{_newVersion}%" is not "{@version}":
-		set {chatbot.updates} to text from "http://bryce.hoffho.us/patses/changelog/chatbot.txt"
+		set {chatbot.updates} to text from "http://bryce.hoffho.us/pastes/changelog/chatbot.txt"
+		set {chatbot.newUpdate} to true
+		send "[Chatbot] New update found! New Version: %{_newVersion}%" to console
+		send "[Chatbot] Download new update here: http://bryce.hoffho.us/pastes/chatbot.txt" to console
+	else:
+		send "[Chatbot] No new updates found" to console
 command /helpop [<text>]:
 	trigger:
 		if arg 1 is set:
@@ -179,7 +184,7 @@ on join:
 			if "%{helpops::*}%" contains "%event-player%":
 				remove event-player from {helpops::*}
 	if event-player has permission "rank.director" or "rank.host" or "rank.admin":
-		if {chatbot.updates} is set:
+		if {chatbot.newUpdate} is true:
 			wait 1 second
 			send "&4&lUPDATE &aChatbot &7has a new update!" to event-player
 			send "&4&lUPDATE &7Changelogs: &f&o%{chatbot.updates}%" to event-player
