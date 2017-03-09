@@ -48,7 +48,7 @@ on load:
 	wait 1 second
 	send "[Chatbot] Checking for new updates..." to console
 	set {chatbot.newVersion} to text from "http://bryce.hoffho.us/pastes/versions/chatbot.txt"
-	if "%{_newVersion}%" is not "{@version}":
+	if "%{chatbot.newVersion}%" is not "{@version}":
 		set {chatbot.updates} to text from "http://bryce.hoffho.us/pastes/changelog/chatbot.txt"
 		set {chatbot.newUpdate} to true
 		send "[Chatbot] New update found! New Version: %{chatbot.newVersion}%" to console
