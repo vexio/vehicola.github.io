@@ -1,4 +1,11 @@
 options:
+#=============[ DO NOT TOUCH HERE ]=============
+	version: 1.0
+	serverVersion: 7
+	# options
+	# 7 = Minecraft 1.7
+	# 8 = Minecraft 1.8
+#=============[ YOU CAN TOUCH HERE NOW ]=============
 	p: &4&lHELPER &c&o
 	helpOp: &4&lHELPOP &b
 	t: &f
@@ -32,6 +39,16 @@ options:
 	stealing: "stealing" or "steal"
 	rules: "rules"
 	skybasing: "skybasing" or "sky basing" or "skybase"
+on load:
+	delete {chatbot.updates}
+	send "[Chatbot] Enabling Pixelbite Chatbot..." to console
+	send "[Chatbot] Current Version {@version}"
+	send "[Chatbot] Created by Vexio"
+	wait 1 second
+	send "[Chatbot] Checking for new updates..."
+	set {_newVersion} to text from "http://bryce.hoffho.us/pastes/versions/chatbot.txt"
+	if "%{_newVersion}%" is not "{@version}":
+		set {chatbot.updates} to text from "http://bryce.hoffho.us/patses/changelog/chatbot.txt"
 command /helpop [<text>]:
 	trigger:
 		if arg 1 is set:
@@ -158,6 +175,12 @@ on join:
 		else:
 			if "%{helpops::*}%" contains "%event-player%":
 				remove event-player from {helpops::*}
+	if event-player has permission "rank.director" or "rank.host" or "rank.admin":
+		if {chatbot.updates} is set:
+			wait 1 second
+			send "&4&lUPDATE &aChatbot &7has a new update!" to event-player
+			send "&4&lUPDATE &7Changelogs: &f&o%{chatbot.updates}%" to event-player
+			send "&4&lUPDATE &7Download: &dhttp://bryce.hoffho.us/pastes/chatbot.txt" to event-player
 on quit:
 	if "%{helpops::*}%" contains "%event-player%":
 		remove event-player from {helpops::*}
