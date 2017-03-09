@@ -1,7 +1,6 @@
 options:
 #=============[ DO NOT TOUCH HERE ]=============
-	version: 1.2
-	serverVersion: 7
+	version: 1.3
 	# options
 	# 7 = Minecraft 1.7
 	# 8 = Minecraft 1.8
@@ -41,6 +40,8 @@ options:
 	skybasing: "skybasing" or "sky basing" or "skybase"
 on load:
 	delete {chatbot.updates}
+	delete {chatbot.newUpdate}
+	delete {chatbot.newVersion}
 	send "[Chatbot] Enabling Pixelbite Chatbot..." to console
 	send "[Chatbot] Current Version {@version}" to console
 	send "[Chatbot] Created by Vexio" to console
@@ -131,8 +132,12 @@ command /helpop [<text>]:
 				send "{@p}Scenario &r&7» &e%{gameinfo::scenario}%"
 				send "{@p}Scenario &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
 			else if "%arg-1%" contains {@enchants}:
-				send "{@p}Enchants &r&7» &aEnchants & Anvils are &l1.7 Based&r&a."
-				send "{@p}Enchants &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+				if "%minecraft version%" contain "1.7":
+					send "{@p}Enchants &r&7» &aEnchants & Anvils are &l1.7 Based&r&a."
+					send "{@p}Enchants &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+				else if "%minecraft version%" contains "1.8":
+					send "{@p}Enchants &r&7» &aEnchants & Anvils are &l1.8 Based&r&a."
+					send "{@p}Enchants &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
 			else if "%arg-1%" contains {@goldenHeads}:
 				send "{@p}Heads &r&7» &aGolden Heads are &e%{gameinfo::heads}%&r&a."
 				send "{@p}Heads &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
