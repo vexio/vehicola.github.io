@@ -1,12 +1,12 @@
 options:
 #=============[ DO NOT TOUCH HERE ]=============
-	version: 1.1
+	version: 1.2
 	serverVersion: 7
 	# options
 	# 7 = Minecraft 1.7
 	# 8 = Minecraft 1.8
 #=============[ YOU CAN TOUCH HERE NOW ]=============
-	p: &4&lHELPER &c&o
+	p: &4&lCHATBOT &c&o
 	helpOp: &4&lHELPOP &b
 	t: &f
 	h: &a
@@ -46,11 +46,11 @@ on load:
 	send "[Chatbot] Created by Vexio" to console
 	wait 1 second
 	send "[Chatbot] Checking for new updates..." to console
-	set {_newVersion} to text from "http://bryce.hoffho.us/pastes/versions/chatbot.txt"
+	set {chatbot.newVersion} to text from "http://bryce.hoffho.us/pastes/versions/chatbot.txt"
 	if "%{_newVersion}%" is not "{@version}":
 		set {chatbot.updates} to text from "http://bryce.hoffho.us/pastes/changelog/chatbot.txt"
 		set {chatbot.newUpdate} to true
-		send "[Chatbot] New update found! New Version: %{_newVersion}%" to console
+		send "[Chatbot] New update found! New Version: %{chatbot.newVersion}%" to console
 		send "[Chatbot] Download new update here: http://bryce.hoffho.us/pastes/chatbot.txt" to console
 	else:
 		send "[Chatbot] No new updates found" to console
@@ -186,7 +186,7 @@ on join:
 	if event-player has permission "rank.director" or "rank.host" or "rank.admin":
 		if {chatbot.newUpdate} is true:
 			wait 1 second
-			send "&4&lUPDATE &aChatbot &7has a new update!" to event-player
+			send "&4&lUPDATE &aChatbot &7has a new update! &8(&b{chat.newVersion}&8)" to event-player
 			send "&4&lUPDATE &7Changelogs: &f&o%{chatbot.updates}%" to event-player
 			send "&4&lUPDATE &7Download: &dhttp://bryce.hoffho.us/pastes/chatbot.txt" to event-player
 on quit:
