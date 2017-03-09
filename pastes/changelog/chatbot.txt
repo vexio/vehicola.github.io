@@ -1,1 +1,1 @@
-Changed prefixes and other minor additions
+Added support for 1.7 & 1.8 Helpop questions & minor changes
