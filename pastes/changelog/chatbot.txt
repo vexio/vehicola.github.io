@@ -1,1 +1,1 @@
-Added support for 1.7 & 1.8 Helpop questions & minor changes
+Fixed some errors with "Ore Modifier"
