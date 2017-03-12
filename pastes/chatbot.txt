@@ -1,6 +1,6 @@
 options:
 #=============[ DO NOT TOUCH HERE ]=============
-	version: 1.3
+	version: 1.4
 	# options
 	# 7 = Minecraft 1.7
 	# 8 = Minecraft 1.8
@@ -27,7 +27,7 @@ options:
 	soundsNametags: "sounds" or "mining to sounds" or "nametags" or "mining to nametags"
 	toggleSprintSneak: "toggle sneak" or "toggle sprint" or "sprint" or "sneak"
 	rates: "rates" or "tarifas"
-	oreModifier: "ore modifier" or " ore" or "modifier"
+	oreModifier: "ore modifier" or "modifier" or "ore"
 	relog: "relog" or "releer"
 	enchants: "enchantments" or "enchant" or "enchants" or "enchanting" or "anvil"
 	crossTeaming: "crossteaming" or "cross teaming" or "cross-teaming" or "cross"
@@ -116,8 +116,12 @@ command /helpop [<text>]:
 				send "{@p}Rates &r&7» &aApple rates are &e%{gameinfo::rates.apples}%%%&a & Flint rates are &e%{gameinfo::rates.flint}%%%&a" to sender
 				send "{@p}Rates &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
 			else if "%arg-1%" contains {@oreModifier}:
-				send "{@p}Ore Modifier &r&7» &aThere is no &lOre Modifier&r&a enabled." to sender
-				send "{@p}Ore Modifier &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+				if "%minecraft version%" contains "1.7":
+					send "{@p}Ore Modifier &r&7» &a&lOre Modifier&a is disabled." to sender
+					send "{@p}Ore Modifier &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+				else if "%minecraft version%" contains "1.8":
+					send "{@p}Ore Modifier &r&7» &a&lOre Modifier&a is enabled." to sender
+					send "{@p}Ore Modifier &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
 			else if "%arg-1%" contains {@relog}:
 				if {finalHeal} is true:
 					send "{@p}Relog &r&7» &aYou have &l10 Minutes&r&a to relog." to sender
@@ -157,11 +161,8 @@ command /helpop [<text>]:
 				send "{@p}Skybasing &r&7» &aSkybasing is &lallowed&a until &eMeetup&a."
 				send "{@p}Skybasing &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
 			else:
-			#	#send "{@helpOp}%sender% &7» &d%arg-1%" to sender
-			#	if {@serverVersion} = 8:
-			#		json("%{helpops::*}%", "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6.||ttp:&6Use &e&n/hr [player] [message]&r&6 to reply.||sgt:/hr %sender% ")
-			#	else if {@serverVersion} = 7:
-			#		send json of "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6." tooltip "&6Use &e&n/hr [player] [message]&r&6 to reply." suggest "/hr %sender% " to {helpops::*}
+			#	json("%{helpops::*}%", "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6.||ttp:&6Use &e&n/hr [player] [message]&r&6 to reply.||sgt:/hr %sender% ")
+			#	send json of "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6." tooltip "&6Use &e&n/hr [player] [message]&r&6 to reply." suggest "/hr %sender% " to {helpops::*}
 				set {helpop.NoAnswer::%sender%} to true
 command /helpopReply [<player>] [<text>]:
 	aliases: /hr
@@ -193,7 +194,8 @@ on join:
 			wait 1 second
 			send "&4&lUPDATE &aChatbot &7has a new update! &8(&bv%{chatbot.newVersion}%&8)" to event-player
 			send "&4&lUPDATE &7Changelogs: &f&o%{chatbot.updates}%" to event-player
-			send "&4&lUPDATE &7Download: &dhttp://bryce.hoffho.us/pastes/chatbot.txt" to event-player
+			event-player has permission "rank.director" or "rank.admin":
+				send "&4&lUPDATE &7Download: &dhttp://bryce.hoffho.us/pastes/chatbot.txt" to event-player
 on quit:
 	if "%{helpops::*}%" contains "%event-player%":
 		remove event-player from {helpops::*}
