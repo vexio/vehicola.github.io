@@ -222,9 +222,12 @@ command /helpops [<text>]:
 		else if arg 1 is "clear" or "c":
 			send "{@p}&r&aCleared Helpops list"
 			delete {helpops::*}
+		else if arg 1 is "version" or "ver":
+			send "{@p}&7Current Version &8(&bv{@version}&8)"
 		else if arg 1 is "help" or "?":
 			send "&4&lHelpops"
 			send " &7▪ &c/helpop [message]"
 			send " &7▪ &c/helpops list"
 			send " &7▪ &c/helpops clear"
 			send " &7▪ &c/helpops"
+			send " &7▪ &c/helpops version"
