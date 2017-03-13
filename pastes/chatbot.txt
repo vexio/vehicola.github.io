@@ -1,6 +1,6 @@
 options:
 #=============[ DO NOT TOUCH HERE ]=============
-	version: 1.4
+	version: 1.5
 	# options
 	# 7 = Minecraft 1.7
 	# 8 = Minecraft 1.8
@@ -59,7 +59,9 @@ command /helpop [<text>]:
 	trigger:
 		if arg 1 is set:
 			send "{@helpOp}%sender% &7» &d%arg-1%" to sender
-			send "{@helpOp}%sender% &7» &d%arg-1%" to {helpops::*}
+			json("%{helpops::*}%", "{@helpOp}%sender% &7» &d%arg-1%||ttp:&6Reply to Helpop%nl%&e&n/hr %sender% [message]||sgt:/hr %sender% ")
+			#send "{@helpOp}%sender% &7» &d%arg-1%" to {helpops::*}
+			set {helpop.reply::%sender%} to true
 			if "%arg-1%" contains {@finalHeal}:
 				if {finalHeal} is true:
 					send "{@p}Final Heal &r&7» &aFinal heal has already been given" to sender
@@ -152,7 +154,7 @@ command /helpop [<text>]:
 				send "{@p}Stalking &r&7» &aExcessive Stalking is &lnot allowed&r&a."
 				send "{@p}Stalking &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
 			else if "%arg-1%" contains {@stealing}:
-				send "{@p}Stealing &r&7» &aStealingis &lnot allowed&r&a."
+				send "{@p}Stealing &r&7» &aStealing is &lallowed&r&a."
 				send "{@p}Stealing &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
 			else if "%arg-1%" contains {@rules}:
 				send "{@p}Rules &r&7» &aUse &e&n/rules&r&a to see all the server rules."
@@ -160,25 +162,24 @@ command /helpop [<text>]:
 			else if "%arg-1%" contains {@skybasing}:
 				send "{@p}Skybasing &r&7» &aSkybasing is &lallowed&a until &eMeetup&a."
 				send "{@p}Skybasing &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
-			else:
+			#else:
 			#	json("%{helpops::*}%", "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6.||ttp:&6Use &e&n/hr [player] [message]&r&6 to reply.||sgt:/hr %sender% ")
 			#	send json of "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6." tooltip "&6Use &e&n/hr [player] [message]&r&6 to reply." suggest "/hr %sender% " to {helpops::*}
-				set {helpop.NoAnswer::%sender%} to true
 command /helpopReply [<player>] [<text>]:
 	aliases: /hr
 	trigger:
 		player has permission "rank.host" or "rank.mod" or "rank.srhost" or "rank.srmod" or "rank.admin"
 		if arg 1 is set:
 			if arg 2 is set:
-				if {helpop.NoAnswer::%player-arg%} is true:
+				if {helpop.reply::%player-arg%} is true:
 					send "{@p}Reply &7| &b%player-arg% &r&7» &a%arg-2%" to sender
 					send "{@p}Reply &7| &b%sender% &r&7» &a%arg-2%" to player-arg
 					console command "/playsound random.successful_hit %player-arg%"
 					#send "{@p}%sender% &r&7» &2Question by &6%player-arg%&2 has been answered." to {helpops::*}
-					set {helpop.NoAnswer::%player-arg%} to false
-				else if {helpop.NoAnswer::%player-arg%} is false:
+					set {helpop.reply::%player-arg%} to false
+				else if {helpop.reply::%player-arg%} is false:
 					send "&4&lERROR &6%player-arg%&c has already had a question answered."
-					delete {helpop.NoAnswer::%player-arg%}
+					delete {helpop.reply::%player-arg%}
 				else:
 					send "&4&lERROR &6%player-arg%&c did not recieve an unanswered helpop." to sender
 on join:
@@ -202,11 +203,11 @@ on quit:
 on skript start:
 	delete {helpops::*}
 	clear {helpops::*}
-command /helpops [<text>]:
-	aliases: /seehelpops, /shps
+command /chatbot [<text>]:
+	aliases: /helpops
 	trigger:
 		player has permission "rank.host" or "rank.mod" or "rank.srhost" or "rank.srmod" or "rank.admin"
-		if arg 1 is not set:
+		if arg 1 is "toggle":
 			if "%{helpops::*}%" contains "%sender%":
 				#delete {helpops::%player%}
 				remove player from {helpops::*}
@@ -224,10 +225,20 @@ command /helpops [<text>]:
 			delete {helpops::*}
 		else if arg 1 is "version" or "ver":
 			send "{@p}&7Current Version &8(&bv{@version}&8)"
-		else if arg 1 is "help" or "?":
-			send "&4&lHelpops"
+			set {_newVer} to text from "http://bryce.hoffho.us/pastes/versions/chatbot.txt"
+			if "%{_newVer}%" is not "{@version}":
+				set {_changelogs} to text from "http://bryce.hoffho.us/pastes/changelog/chatbot.txt"
+				send "{@p}&7Newest Version &8(&av%{_newVer}%&8)"
+				send "{@p}&7Changelogs &f&o%{_changelogs}%"
+				event-player has permission "rank.admin" or "rank.host":
+					send "{@p}&7Download &dhttp://bryce.hoffho.us/pastes/chatbot.txt"
+			else:
+				send "{@p}&7You are on the newest version."
+			stop
+		else if arg 1 is not set:
+			send "&4&lCHATBOT"
 			send " &7▪ &c/helpop [message]"
-			send " &7▪ &c/helpops list"
-			send " &7▪ &c/helpops clear"
-			send " &7▪ &c/helpops"
-			send " &7▪ &c/helpops version"
+			send " &7▪ &c/chatbot list"
+			send " &7▪ &c/chatbot clear"
+			send " &7▪ &c/chatbot toggle"
+			send " &7▪ &c/chatbot version"
