@@ -1,1 +1,1 @@
-Fixed some errors with "Ore Modifier"
+Fixed typo with "Stealing"
