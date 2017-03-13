@@ -181,6 +181,210 @@ command /helpopReply [<player>] [<text>]:
 						set {_y} to y-coordinate of player-arg
 						set {_z} to z-coordinate of player-arg
 						console command "/playsound random.successful_hit %player-arg% %{_x}% %{_y}% %{_z}%"
+					#send "{@p}%sender% &r&7» &2Question by &6%player-arg%&2 has been answered." to {helpops::*}
+					json("%{helpops::*}%", "{@p}%sender% &r&7» &2Question by &6%player-arg%&2 has been answered.||ttp:&6Response by &e%sender%&6:%nl%&7%arg-2%")
+					set {helpop.reply::%player-arg%} to false
+				else if {helpop.reply::%player-arg%} is false:
+					send "&4&lERROR &6%player-arg%&c has already had a question answered."
+					delete {helpop.reply::%player-arg%}
+				else:
+					send "&4&lERROR &6%player-arg%&c did not recieve an unanswered helpop." to sender
+on join:
+	if "%{helpops::*}%" does not contain "%event-player%":
+		if player has permission "rank.host" or "rank.mod" or "rank.srhost" or "rank.srmod" or "rank.admin" or "rank.director":
+			add event-player to {helpops::*}
+			#json("%event-player%", "{@p}&r&aYou can now see Helpops. To not see helpops, ||&e&lClick Here&r&a.||ttp:&6Click to toggle Helpops||cmd:/helpops")
+		else:
+			if "%{helpops::*}%" contains "%event-player%":
+				remove event-player from {helpops::*}
+	if event-player has permission "rank.director" or "rank.host" or "rank.admin":
+		if {chatbot.newUpdate} is true:
+			wait 1 second
+			send "&4&lUPDATE &aChatbot &7has a new update! &8(&bv%{chatbot.newVersion}%&8)" to event-player
+			send "&4&lUPDATE &7Changelogs: &f&o%{chatbot.updates}%" to event-player
+			event-player has permission "rank.director" or "rank.admin":
+				send "&4&lUPDATE &7Download: &dhttp://bryce.hoffho.us/pastes/chatbot.txt" to event-player
+on quit:
+	if "%{helpops::*}%" contains "%event-player%":
+		remove event-player from {helpops::*}
+on skript start:
+	delete {helpops::*}
+	clear {helpops::*}
+command /chatbot [<text>]:
+	aliases: /helpops
+	trigger:
+		player has permission "rank.host" or "rank.mod" or "rank.srhost" or "rank.srmod" or "rank.admin"
+		if arg 1 is "toggle":
+			if "%{helpops::*}%" contains "%sender%":
+				#delete {helpops::%player%}
+				remove player from {helpops::*}
+				send "{@p}&r&aYou will no longer see helpops."
+			else:
+				#set {helpops::%player%} to true
+				add player to {helpops::*}
+				send "{@p}&r&aYou will now see helpops."
+		else if arg 1 is "list" or "l":
+			send "{@p}&r&aHelpops List"
+			send " &7- &f%{helpops::*}%"
+			stop
+		else if arg 1 is "clear" or "c":
+			send "{@p}&r&aCleared Helpops list"
+			delete {helpops::*}
+		else if arg 1 is "version" or "ver":
+			send "{@p}&7Current Version &8(&bv{@version}&8)"
+			set {_newVer} to text from "http://bryce.hoffho.us/pastes/versions/chatbot.txt"
+			if "%{_newVer}%" is not "{@version}":
+				set {_changelogs} to text from "http://bryce.hoffho.us/pastes/changelog/chatbot.txt"
+				send "{@p}&7Newest Version &8(&av%{_newVer}%&8)"
+				send "{@p}&7Changelogs &f&o%{_changelogs}%"
+				event-player has permission "rank.admin" or "rank.host":
+					send "{@p}&7Download &dhttp://bryce.hoffho.us/pastes/chatbot.txt"
+			else:
+				send "{@p}&7You are on the newest version."
+			stop
+		else if arg 1 is not set:
+			send "&4&lCHATBOT"
+			send " &7▪ &c/helpop [message]"
+			send " &7▪ &c/chatbot list"
+			send " &7▪ &c/chatbot clear"
+			send " &7▪ &c/chatbot toggle"
+			send " &7▪ &c/chatbot version"
+
+	send "[Chatbot] Checking for new updates..." to console
+	set {chatbot.newVersion} to text from "http://bryce.hoffho.us/pastes/versions/chatbot.txt"
+	if "%{chatbot.newVersion}%" is not "{@version}":
+		set {chatbot.updates} to text from "http://bryce.hoffho.us/pastes/changelog/chatbot.txt"
+		set {chatbot.newUpdate} to true
+		send "[Chatbot] New update found! New Version: %{chatbot.newVersion}%" to console
+		send "[Chatbot] Download new update here: http://bryce.hoffho.us/pastes/chatbot.txt" to console
+	else:
+		send "[Chatbot] No new updates found" to console
+command /helpop [<text>]:
+	trigger:
+		if arg 1 is set:
+			send "{@helpOp}%sender% &7» &d%arg-1%" to sender
+			json("%{helpops::*}%", "{@helpOp}%sender% &7» &d%arg-1%||ttp:&6Reply to Helpop%nl%&e&n/hr %sender% [message]||sgt:/hr %sender% ")
+			#send "{@helpOp}%sender% &7» &d%arg-1%" to {helpops::*}
+			set {helpop.reply::%sender%} to true
+			if "%arg-1%" contains {@finalHeal}:
+				if {finalHeal} is true:
+					send "{@p}Final Heal &r&7» &aFinal heal has already been given" to sender
+					send "{@p}Final Heal &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+				else:
+					send "{@p}Final Heal &r&7» &aFinal heal will occur &l30 seconds&r&a after Game Start" to sender
+					send "{@p}Final Heal &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@iPvp}:
+				send "{@p}iPvP &r&7» &aiPvP is allowed &lafter&r&a Grace Period" to sender
+				send "{@p}iPvP &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@rollerCoastering}:
+				send "{@p}Rollercoastering &r&7» &aRollercoastering is allowed from &lY=32&r&a down and back up." to sender
+				send "{@p}Rollercoastering &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@stairCasing}:
+				send "{@p}Staircasing &r&7» &aStaircasing is allowed from &lY=32&r&a down and back up." to sender
+				send "{@p}Staircasing &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@stripMining}:
+				send "{@p}Stripmining &r&7» &aStripmining is &lnot allowed&r&a." to sender
+				send "{@p}Stripmining &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@pokeHoling}:
+				send "{@p}Pokeholing &r&7» &aPokeholing is &lnot allowed&r&a." to sender
+				send "{@p}Pokeholing &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@soundsNametags}:
+				send "{@p}Sounds/Nametags &r&7» &aMining to Sounds/Nametags is &lAllowed&r&a." to sender
+				send "{@p}Sounds/Nametags &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@apples}:
+				send "{@p}Apples &r&7» &aApple rates are at &e%{gameinfo::rates.apples}%%%&a, and drop from &lall&r&a trees." to sender
+				send "{@p}Apples &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@flint}:
+				send "{@p}Flint &r&7» &aFlint rates are at &e%{gameinfo::rates.flint}%%%&a" to sender
+				send "{@p}Flint &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@shears}:
+				send "{@p}Shears &r&7» &aShears are enabled for &lall&r&a trees." to sender
+				send "{@p}Shears &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@nether}:
+				send "{@p}Nether &r&7» &aNether is &e%{gameinfo::nether}%&a, and Nether PvP is &e%{gameinfo::netherpvp}%&a." to sender
+				send "{@p}Nether &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@absorption}:
+				send "{@p}Absorption &r&7» &aAbsorption is &e%{gameinfo::absorption}%&a." to sender
+				send "{@p}Absorption &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@portals}:
+				send "{@p}Portal &r&7» &aPortal Camping & Trapping is &lnot allowed&r&a." to sender
+				send "{@p}Portal &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@potions}:
+				send "{@p}Potions/Strength &r&7» &aTier II Potions are &ldisabled&r&a & Strength is &lenabled&r&a if Nether is enabled" to sender
+				send "{@p}Potions/Strength &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@horses}:
+				send "{@p}Horses &r&7» &aHorses are &e%{gameinfo::horses}%&r&a & Horse healing is &e%{gameinfo::horsehealing}%&r&a." to sender
+				send "{@p}Horses &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@toggleSprintSneak}:
+				send "{@p}Toggle Sprint/Sneak &r&7» &aToggle Sneak is &lnot allowed&r&a, however, Toggle Sprint feature is &lallowed&r&a." to sender
+				send "{@p}Toggle Sprint/Sneak &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@rates}:
+				send "{@p}Rates &r&7» &aApple rates are &e%{gameinfo::rates.apples}%%%&a & Flint rates are &e%{gameinfo::rates.flint}%%%&a" to sender
+				send "{@p}Rates &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@oreModifier}:
+				if "%minecraft version%" contains "1.7":
+					send "{@p}Ore Modifier &r&7» &a&lOre Modifier&a is disabled." to sender
+					send "{@p}Ore Modifier &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+				else if "%minecraft version%" contains "1.8":
+					send "{@p}Ore Modifier &r&7» &a&lOre Modifier&a is enabled." to sender
+					send "{@p}Ore Modifier &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@relog}:
+				if {finalHeal} is true:
+					send "{@p}Relog &r&7» &aYou have &l10 Minutes&r&a to relog." to sender
+					send "{@p}Relog &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+				else:
+					send "{@p}Relog &r&7» &aYou should &lNOT&r&a relog before Final Heal" to sender
+					send "{@p}Relog &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@crossTeaming}:
+				send "{@p}Crossteaming &r&7» &aCrossteaming is &lnot allowed&r&a."
+				send "{@p}Crossteaming &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@scenarios}:
+				send "{@p}Scenario &r&7» &e%{gameinfo::scenario}%"
+				send "{@p}Scenario &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@enchants}:
+				if "%minecraft version%" contain "1.7":
+					send "{@p}Enchants &r&7» &aEnchants & Anvils are &l1.7 Based&r&a."
+					send "{@p}Enchants &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+				else if "%minecraft version%" contains "1.8":
+					send "{@p}Enchants &r&7» &aEnchants & Anvils are &l1.8 Based&r&a."
+					send "{@p}Enchants &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@goldenHeads}:
+				send "{@p}Heads &r&7» &aGolden Heads are &e%{gameinfo::heads}%&r&a."
+				send "{@p}Heads &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@border}:
+				send "{@p}Border &r&7» &aThe current Border Size is &e%{gameinfo::border}%&a, and teleports players."
+				send "{@p}Border &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@stalking}:
+				send "{@p}Stalking &r&7» &aExcessive Stalking is &lnot allowed&r&a."
+				send "{@p}Stalking &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@stealing}:
+				send "{@p}Stealing &r&7» &aStealing is &lallowed&r&a."
+				send "{@p}Stealing &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@rules}:
+				send "{@p}Rules &r&7» &aUse &e&n/rules&r&a to see all the server rules."
+				send "{@p}Rules &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			else if "%arg-1%" contains {@skybasing}:
+				send "{@p}Skybasing &r&7» &aSkybasing is &lallowed&a until &eMeetup&a."
+				send "{@p}Skybasing &r&7» &2Question has been answered by &6ChatBot" to {helpops::*}
+			#else:
+			#	json("%{helpops::*}%", "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6.||ttp:&6Use &e&n/hr [player] [message]&r&6 to reply.||sgt:/hr %sender% ")
+			#	send json of "{@p}??? &r&7» &6Question could not be answered by &eChatBot&6." tooltip "&6Use &e&n/hr [player] [message]&r&6 to reply." suggest "/hr %sender% " to {helpops::*}
+command /helpopReply [<player>] [<text>]:
+	aliases: /hr
+	trigger:
+		player has permission "rank.host" or "rank.mod" or "rank.srhost" or "rank.srmod" or "rank.admin"
+		if arg 1 is set:
+			if arg 2 is set:
+				if {helpop.reply::%player-arg%} is true:
+					send "{@p}Reply &7| &b%player-arg% &r&7» &a%arg-2%" to sender
+					send "{@p}Reply &7| &b%sender% &r&7» &a%arg-2%" to player-arg
+					if "%minecraft version%" contains "1.7":
+						console command "/playsound random.successful_hit %player-arg%"
+					if "%minecraft version%" contains "1.8":
+						set {_x} to x-coordinate of player-arg
+						set {_y} to y-coordinate of player-arg
+						set {_z} to z-coordinate of player-arg
+						console command "/playsound random.successful_hit %player-arg% %{_x}% %{_y}% %{_z}%"
 					send "{@p}%sender% &r&7» &2Question by &6%player-arg%&2 has been answered." to {helpops::*}
 					set {helpop.reply::%player-arg%} to false
 				else if {helpop.reply::%player-arg%} is false:
