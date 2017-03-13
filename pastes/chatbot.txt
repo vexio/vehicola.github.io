@@ -174,8 +174,14 @@ command /helpopReply [<player>] [<text>]:
 				if {helpop.reply::%player-arg%} is true:
 					send "{@p}Reply &7| &b%player-arg% &r&7» &a%arg-2%" to sender
 					send "{@p}Reply &7| &b%sender% &r&7» &a%arg-2%" to player-arg
-					console command "/playsound random.successful_hit %player-arg%"
-					#send "{@p}%sender% &r&7» &2Question by &6%player-arg%&2 has been answered." to {helpops::*}
+					if "%minecraft version%" contains "1.7":
+						console command "/playsound random.successful_hit %player-arg%"
+					if "%minecraft version%" contains "1.8":
+						set {_x} to x-coordinate of player-arg
+						set {_y} to y-coordinate of player-arg
+						set {_z} to z-coordinate of player-arg
+						console command "/playsound random.successful_hit %player-arg% %{_x}% %{_y}% %{_z}%"
+					send "{@p}%sender% &r&7» &2Question by &6%player-arg%&2 has been answered." to {helpops::*}
 					set {helpop.reply::%player-arg%} to false
 				else if {helpop.reply::%player-arg%} is false:
 					send "&4&lERROR &6%player-arg%&c has already had a question answered."
