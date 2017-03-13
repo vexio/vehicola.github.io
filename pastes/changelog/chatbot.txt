@@ -1,1 +1,1 @@
-`/helpops` has been replaced with `/chatbot` and `/hr reply` has returned!
+Too many changes! Check out #announcements on Slack.
