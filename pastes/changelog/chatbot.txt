@@ -1,1 +1,1 @@
-Too many changes! Check out #announcements on Slack.
+Fixed errors with multiple people having Chatbot enabled
