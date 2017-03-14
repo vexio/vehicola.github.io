@@ -59,7 +59,8 @@ command /helpop [<text>]:
 	trigger:
 		if arg 1 is set:
 			send "{@helpOp}%sender% &7» &d%arg-1%" to sender
-			json("%{helpops::*}%", "{@helpOp}%sender% &7» &d%arg-1%||ttp:&6Reply to Helpop%nl%&e&n/hr %sender% [message]||sgt:/hr %sender% ")
+			loop {helpops::*}:
+				json("%loop-value%", "{@helpOp}%sender% &7» &d%arg-1%||ttp:&6Reply to Helpop%nl%&e&n/hr %sender% [message]||sgt:/hr %sender% ")
 			#send "{@helpOp}%sender% &7» &d%arg-1%" to {helpops::*}
 			set {helpop.reply::%sender%} to true
 			if "%arg-1%" contains {@finalHeal}:
@@ -182,7 +183,8 @@ command /helpopReply [<player>] [<text>]:
 						set {_z} to z-coordinate of player-arg
 						console command "/playsound random.successful_hit %player-arg% %{_x}% %{_y}% %{_z}%"
 					#send "{@p}%sender% &r&7» &2Question by &6%player-arg%&2 has been answered." to {helpops::*}
-					json("%{helpops::*}%", "{@p}%sender% &r&7» &2Question by &6%player-arg%&2 has been answered.||ttp:&6Response by &e%sender%&6:%nl%&7%arg-2%")
+					loop {helpops::*}:
+						json("%loop-value%", "{@p}%sender% &r&7» &2Question by &6%player-arg%&2 has been answered.||ttp:&6Response by &e%sender%&6:%nl%&7%arg-2%")
 					set {helpop.reply::%player-arg%} to false
 				else if {helpop.reply::%player-arg%} is false:
 					send "&4&lERROR &6%player-arg%&c has already had a question answered."
