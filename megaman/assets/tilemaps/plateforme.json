@@ -1,0 +1,35 @@
+{ "height":7,
+ "layers":[
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1],
+         "height":7,
+         "name":"Calque de Tile 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":10,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tileheight":80,
+ "tilesets":[
+        {
+         "columns":5,
+         "firstgid":1,
+         "image":"..\/map_80x80.png",
+         "imageheight":80,
+         "imagewidth":400,
+         "margin":0,
+         "name":"ground",
+         "spacing":0,
+         "tilecount":5,
+         "tileheight":80,
+         "tilewidth":80
+        }],
+ "tilewidth":80,
+ "version":1,
+ "width":10
+}
