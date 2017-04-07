@@ -1,0 +1,332 @@
+CDynamicFunction: Loading library 'Kernel32.dll' (751E0000)
+CDynamicFunction: Lookup of 'TryEnterCriticalSection' in 'Kernel32.dll': 77ADC8B0
+
+-------------------------------------------------------------------------------
+Running command: cd "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\bin"
+-------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+Running command: "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\bin\vbsp.exe" -game "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo" "c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose"
+-------------------------------------------------------------------------------
+
+CDynamicFunction: Loading library 'Kernel32.dll' (751E0000)
+CDynamicFunction: Lookup of 'TryEnterCriticalSection' in 'Kernel32.dll': 77ADC8B0
+Valve Software - vbsp.exe (Mar 23 2017)
+4 threads
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_butterfly/knife_butterfly.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_bayonet/knife_bayonet.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_ct/knife_ct.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_flip/knife_flip.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_gut/knife_gut.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_karam/karam.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_m9_bay/knife_m9_bay.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_t/knife_t.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_tactical/knife_tactical.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/mach_m249para/m249.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/mach_negev/mach_negev.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_223/pist_223.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_cz_75/pist_cz_75.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_deagle/pist_deagle.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_elite/m9a1.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_fiveseven/fiveseven.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_glock18/pist_glock18.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_hkp2000/pist_hkp2000.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_p250/p250.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_tec9/pist_tec9.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/rif_ak47/ak47.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/rif_aug/rif_aug.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/rif_famas/rif_famas.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/rif_galilar/rif_galilar.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/rif_m4a1/rif_m4a1.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/rif_m4a1_s/rif_m4a1_s.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/rif_sg556/rif_sg556.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/shot_mag7/shot_mag7.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/shot_nova/shot_nova.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/shot_sawedoff/shot_sawedoff_01.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/shot_xm1014/shot_xm1014.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/smg_bizon/bizon.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/smg_mac10/smg_mac10_1.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/smg_mp7/smg_mp7.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/smg_mp9/smg_mp9.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/smg_p90/smg_p90.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/smg_ump45/smg_ump45.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/snip_awp/awp.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/snip_g3sg1/snip_g3sg1.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/snip_scar20/snip_scar20.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/snip_ssg08/snip_ssg08.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/snip_ssg08/snip_ssg08_scope.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/pist_revolver/pist_revolver.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_falchion_advanced/knife_falchion_advanced.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_push/knife_push.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/knife_survival_bowie/knife_survival_bowie.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_sporty/glove_sporty_left.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_sporty/glove_sporty_right.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_bloodhound/glove_bloodhound_left.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_bloodhound/glove_bloodhound_right.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_slick/glove_slick_left.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_slick/glove_slick_right.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_motorcycle/glove_motorcycle_left.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_motorcycle/glove_motorcycle_right.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_handwrap_leathery/glove_handwrap_leathery_left.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_handwrap_leathery/glove_handwrap_leathery_right.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_specialist/glove_specialist_left.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/v_models/arms/glove_specialist/glove_specialist_right.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/player/custom_player/paintkits/gloves/mayan_green.vmt.
+Failed to load VMT: materials/models/player/custom_player/paintkits/gloves/slick_grape.vmt
+Failed to load VMT: materials/models/player/custom_player/paintkits/gloves/sporty_space_blue.vmt
+Failed to load VMT: materials/models/player/custom_player/paintkits/gloves/retro_grey.vmt
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/bloodhound_black_silver.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/bloodhound_snakeskin_brass.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/bloodhound_metallic.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/handwrap_leathery_brown_beige.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/handwrap_leathery_fabric_grey_camo_blob.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/handwrap_leathery_fabric_red_beige.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/handwrap_leathery_fabric_yellow_camo.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/handwrap_leathery_fabric_red_slaughter.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/slick_black.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/slick_brown.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/slick_military.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/slick_red.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/slick_snakeskin.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/sporty_fade.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/sporty_lightblue.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/sporty_military.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/sporty_red.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/sporty_pink.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/motorcycle_basic_black.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/motorcycle_choco_boom.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/motorcycle_mint_triangle.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/motorcycle_mono_boom.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/motorcycle_triangle_blue.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/motorcycle_yellow_camo.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/specialist_ddpat_dense_green_brown.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/specialist_forest_brown.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/specialist_green_red_black.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/specialist_kimono_diamonds_black_red.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/specialist_webs_green.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/specialist_white_orange_grey.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/handwrap_leathery_fabric_orange_camo.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/sporty_purple.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/sporty_green.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/bloodhound_guerrilla.vmt.
+CustomMaterialManager: Cached KeyValues materials/models/weapons/customization/paints_gloves/slick_snakeskin_yellow.vmt.
+materialPath: C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\materials
+Loading c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose.vmf
+Map revision 137
+fixing up env_cubemap materials on brush sides...
+ProcessBlock_Thread: 0...1...2...3...4...5...6...7...8...9...10 (0)
+ProcessBlock_Thread: 0...1...2...3...4...5...6...7...8...9...10 (1)
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 18 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose.prt...Building visibility clusters...
+done (0)
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Displacement Alpha : 0...1...2...3...4...5...6...7...8...9...10
+Building Physics collision data...
+done (0) (271062 bytes)
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Water found with no water_lod_control entity, creating a default one.
+Compacting texture/material tables...
+Reduced 298 texinfos to 155
+Reduced 26 texdatas to 25 (581 bytes to 544)
+Writing c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose.bsp
+1 second elapsed
+CDynamicFunction: Closing library 'Kernel32.dll' (751E0000)
+
+-------------------------------------------------------------------------------
+Running command: cd "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\bin"
+-------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+Running command: "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\bin\vvis.exe" -game "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo" "c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose"
+-------------------------------------------------------------------------------
+
+CDynamicFunction: Loading library 'Kernel32.dll' (751E0000)
+CDynamicFunction: Lookup of 'TryEnterCriticalSection' in 'Kernel32.dll': 77ADC8B0
+Valve Software - vvis.exe (Mar 17 2017)
+4 threads
+reading c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose.bsp
+reading c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose.prt
+ 988 portalclusters
+2814 numportals
+BasePortalVis:       0...1...2...3...4...5...6...7...8...9...10 (0)
+PortalFlow:          0...1...2...3...4...5...6...7...8...9...10 (56)
+Optimized: 3202 visible clusters (0.00%)
+Total clusters visible: 280774
+Average clusters visible: 284
+Building PAS...
+Average clusters audible: 914
+visdatasize:221377  compressed from 252928
+writing c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose.bsp
+56 seconds elapsed
+CDynamicFunction: Closing library 'Kernel32.dll' (751E0000)
+
+-------------------------------------------------------------------------------
+Running command: cd "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\bin"
+-------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+Running command: "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\bin\vrad.exe" -textureshadows -hdr -StaticPropLighting -StaticPropPolys -game "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo" "c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose"
+-------------------------------------------------------------------------------
+
+CDynamicFunction: Loading library 'Kernel32.dll' (751E0000)
+CDynamicFunction: Lookup of 'TryEnterCriticalSection' in 'Kernel32.dll': 77ADC8B0
+Valve Software - vrad.exe SSE (Mar 23 2017)
+
+      Valve Radiosity Simulator
+4 threads
+[Reading texlights from 'lights.rad']
+[17 texlights parsed from 'lights.rad']
+
+Loading c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose.bsp
+Loaded alpha texture materials\Metal\metalbar001c.vtf
+Setting up ray-trace acceleration structure... Done (3.13 seconds)
+3356 faces
+800248 square feet [115235752.00 square inches]
+0 Displacements
+0 Square Feet [0.00 Square Inches]
+3356 patches before subdivision
+zero area child patch
+zero area child patch
+42646 patches after subdivision
+sun extent from map=0.000000
+33 direct lights
+BuildFacelights:     0...1...2...3...4...5...6...7...8...9...10 (17)
+BuildVisLeafs:       0...1...2...3...4...5...6...7...8...9...10 (5)
+transfers 4227118, max 542
+transfer lists:  32.3 megs
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #1 added RGB(81843, 25467, 2155)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #2 added RGB(40256, 4041, 65)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #3 added RGB(21470, 685, 6)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #4 added RGB(11444, 117, 1)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #5 added RGB(6185, 20, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #6 added RGB(3353, 4, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #7 added RGB(1829, 1, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #8 added RGB(1000, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #9 added RGB(549, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #10 added RGB(302, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #11 added RGB(167, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #12 added RGB(92, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #13 added RGB(51, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #14 added RGB(28, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #15 added RGB(16, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #16 added RGB(9, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #17 added RGB(5, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #18 added RGB(3, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #19 added RGB(2, 0, 0)
+GatherLight:         0...1...2...3...4...5...6...7...8...9...10 (0)
+        Bounce #20 added RGB(1, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0096 sec>
+FinalLightFace:      0...1...2...3...4...5...6...7...8...9...10 (3)
+FinalLightFace Done
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+ThreadComputeLeafAmbient: 0...1...2...3...4...5...6...7...8...9...10 (2)
+Writing leaf ambient...done
+Computing static prop lighting : 0ThreadComputeStaticPropLighting: 0...1...2...3...4...5...6...7...8...9...10 (29)
+
+Ready to Finish
+
+Object names       Objects/Maxobjs  Memory / Maxmem  Fullness
+------------       ---------------  ---------------  --------
+models                   7/1024          336/49152    ( 0.7%)
+brushes                793/8192         9516/98304    ( 9.7%)
+brushsides            6211/65536       49688/524288   ( 9.5%)
+planes                4110/65536       82200/1310720  ( 6.3%)
+vertexes              6453/65536       77436/786432   ( 9.8%)
+nodes                 2463/65536       78816/2097152  ( 3.8%)
+texinfos               155/12288       11160/884736   ( 1.3%)
+texdata                 25/2048          800/65536    ( 1.2%)
+dispinfos                0/0               0/0        ( 0.0%)
+disp_verts               0/0               0/0        ( 0.0%)
+disp_tris                0/0               0/0        ( 0.0%)
+disp_multiblend          0/0               0/0        ( 0.0%)
+disp_lmsamples           0/0               0/0        ( 0.0%)
+faces                 3356/65536      187936/3670016  ( 5.1%)
+hdr faces             3356/65536      187936/3670016  ( 5.1%)
+origfaces             1645/65536       92120/3670016  ( 2.5%)
+facebrushes           1660/0            3320/0        ( 0.0%)
+facebrushlists        3356/0           13424/0        ( 0.0%)
+leaves                2471/65536       79072/2097152  ( 3.8%)
+leaffaces             3811/65536        7622/131072   ( 5.8%)
+leafbrushes           3547/65536        7094/131072   ( 5.4%)
+areas                    2/1024           16/8192     ( 0.2%)
+surfedges            22922/512000      91688/2048000  ( 4.5%)
+edges                13465/256000      53860/1024000  ( 5.3%)
+LDR worldlights          0/8192            0/819200   ( 0.0%)
+HDR worldlights         32/8192         3200/819200   ( 0.4%)
+leafwaterdata            1/32768          12/393216   ( 0.0%)
+waterstrips            351/32768        3510/327680   ( 1.1%)
+waterverts               0/65536           0/786432   ( 0.0%)
+waterindices          5823/65536       11646/131072   ( 8.9%)
+cubemapsamples           0/1024            0/16384    ( 0.0%)
+overlays                15/1024         5280/360448   ( 1.5%)
+LDR lightdata         [variable]           0/0        ( 0.0%)
+HDR lightdata         [variable]     1940732/0        ( 0.0%)
+visdata               [variable]      221377/16777216 ( 1.3%)
+entdata               [variable]       16353/393216   ( 4.2%)
+LDR ambient table     2471/65536        9884/262144   ( 3.8%)
+HDR ambient table     2471/65536        9884/262144   ( 3.8%)
+LDR leaf ambient      2471/65536       69188/1835008  ( 3.8%)
+HDR leaf ambient      9395/65536      263060/1835008  (14.3%)
+occluders                0/0               0/0        ( 0.0%)
+occluder polygons        0/0               0/0        ( 0.0%)
+occluder vert ind        0/0               0/0        ( 0.0%)
+detail props          [variable]           1/12       ( 8.3%)
+static props          [variable]           1/14036    ( 0.0%)
+pakfile               [variable]     1843131/0        ( 0.0%)
+physics               [variable]      271062/4194304  ( 6.5%)
+physics terrain       [variable]           2/1048576  ( 0.0%)
+
+Level flags = 3e
+
+Total triangle count: 9538
+Writing c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose.bsp
+59 seconds elapsed
+CDynamicFunction: Closing library 'Kernel32.dll' (751E0000)
+
+-------------------------------------------------------------------------------
+Running command: copy "c:\program files (x86)\steam\steamapps\common\counter-strike global offensive\sdk_content\maps\de_rose.bsp" "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\maps\de_rose.bsp"
+-------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+Running command: cd "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive"
+-------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+Running command: "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo.exe" -hijack -dev -console -allowdebug -game "C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo" +map "de_rose"
+-------------------------------------------------------------------------------
+
+Finished. Press a key to close.
