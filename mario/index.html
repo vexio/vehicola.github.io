@@ -10,6 +10,15 @@
   <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+<style type="text/css">
+canvas {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -o-crisp-edges;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+</style>
 <body>
   <nav class="red lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="http://bryce.hoffho.us/" class="brand-logo"><img src="http://emojipedia-us.s3.amazonaws.com/cache/de/fa/defa0e7fab3650cfcf2b4562f94230a5.png" alt="B" style="width:62px;height:62px;"></a>
@@ -35,7 +44,66 @@
 
   <div class="container">
     <div class="section">
-      <p>test<p>
+      <div class="row">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+				<script type='text/javascript' src='http://www.midijs.net/lib/midi.js'></script>
+	<body>
+		<center><canvas id="canvas" width="480" height="360">
+			<p>Your browser does not support HTML5 Canvas</p>
+		</canvas></center>
+
+        <!-- Enjine Includes -->
+        <script src="Enjine/core.js"></script>
+        <script src="Enjine/gameCanvas.js"></script>
+        <script src="Enjine/keyboardInput.js"></script>
+        <script src="Enjine/resources.js"></script>
+        <script src="Enjine/drawable.js"></script>
+        <script src="Enjine/state.js"></script>
+        <script src="Enjine/gameTimer.js"></script>
+        <script src="Enjine/camera.js"></script>
+        <script src="Enjine/drawableManager.js"></script>
+        <script src="Enjine/sprite.js"></script>
+        <script src="Enjine/spriteFont.js"></script>
+        <script src="Enjine/frameSprite.js"></script>
+        <script src="Enjine/animatedSprite.js"></script>
+        <script src="Enjine/collideable.js"></script>
+        <script src="Enjine/application.js"></script>
+
+        <!-- Actual game code -->
+        <script src="code/setup.js"></script>
+        <script src="code/spriteCuts.js"></script>
+        <script src="code/level.js"></script>
+        <script src="code/backgroundGenerator.js"></script>
+        <script src="code/backgroundRenderer.js"></script>
+        <script src="code/improvedNoise.js"></script>
+        <script src="code/notchSprite.js"></script>
+        <script src="code/character.js"></script>
+        <script src="code/levelRenderer.js"></script>
+        <script src="code/levelGenerator.js"></script>
+        <script src="code/spriteTemplate.js"></script>
+        <script src="code/enemy.js"></script>
+        <script src="code/fireball.js"></script>
+        <script src="code/sparkle.js"></script>
+        <script src="code/coinAnim.js"></script>
+        <script src="code/mushroom.js"></script>
+		    <script src="code/particle.js"></script>
+		    <script src="code/fireFlower.js"></script>
+        <script src="code/bulletBill.js"></script>
+        <script src="code/flowerEnemy.js"></script>
+        <script src="code/shell.js"></script>
+
+        <script src="code/titleState.js"></script>
+        <script src="code/loadingState.js"></script>
+        <script src="code/loseState.js"></script>
+        <script src="code/winState.js"></script>
+        <script src="code/mapState.js"></script>
+        <script src="code/levelState.js"></script>
+
+        <script src="code/music.js"></script>
+
+        <script>$(document).ready(function() { new Enjine.Application().Initialize(new Mario.LoadingState(), 320, 240) });</script>
+	</body>
+      </div>
     <div class="section">
 
     </div>
