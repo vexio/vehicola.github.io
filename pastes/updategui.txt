@@ -1,0 +1,19 @@
+command /updateGUI:
+	trigger:
+		set {gui.inQueue} to 0
+		set {gui.playing} to 0
+		open virtual hopper inventory with size 1 named "updating gui" to sender
+		wait 1 tick
+		make gui slot 2 of sender with stick named "&c&nHungerwolf" with lore "&8Info|| &7Queue &a%{gui.inQueue}%|| &7Playing &a%{gui.playing}%" to do nothing
+		wait 1 second
+		set {gui.test::%sender%} to true
+		broadcast "started &9while&r loop"
+		while {gui.test::%sender%} = true:
+			wait 1 second
+			add 1 to {gui.inQueue}
+			add 2 to {gui.playing}
+			make gui slot 2 of sender with stick named "&c&nHungerwolf" with lore "&8Info|| &7Queue &a%{gui.inQueue}%|| &7Playing &a%{gui.playing}%" to do nothing
+on inventory close:
+	if {gui.test::%sender%} is set:
+		delete {gui.test::%sender%}
+		broadcast "stopped &9while&r loop"
