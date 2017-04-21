@@ -25,22 +25,28 @@ Mario.PlayMusic = function(name) {
 
 Mario.PlayTitleMusic = function() {
 	Mario.PlayMusic("title");
+	document.getElementById("title").volume = 0.2;
+	
 };
 
 Mario.PlayMapMusic = function() {
 	Mario.PlayMusic("map");
+	document.getElementById("map").volume = 0.2;
 };
 
 Mario.PlayOvergroundMusic = function() {
 	Mario.PlayMusic("background");
+	document.getElementById("background").volume = 0.2;
 };
 
 Mario.PlayUndergroundMusic = function() {
 	Mario.PlayMusic("underground");
+	document.getElementById("underground").volume = 0.2;
 };
 
 Mario.PlayCastleMusic = function() {
 	Mario.PlayMusic("castle");
+	document.getElementById("castle").volume = 0.2;
 };
 
 Mario.StopMusic = function() {
