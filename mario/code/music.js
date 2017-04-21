@@ -3,7 +3,7 @@
 */
 
 var midifiles = {
-	"title" : "midi/title2.mid",
+	"title" : "midi/Paper Mario- Main title.mp3",
 	"map" : "midi/map.mid",
 	"background" : "midi/background.mid",
 	"overground" : "midi/overground.mid",
