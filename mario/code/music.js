@@ -3,7 +3,7 @@
 */
 
 var midifiles = {
-	"title" : "midi/mainmenu.mid",
+	"title" : "midi/mainmenu.MID",
 	"map" : "midi/map.mid",
 	"background" : "midi/background.mid",
 	"overground" : "midi/overground.mid",
