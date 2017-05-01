@@ -90,7 +90,7 @@
         <!-- FLY -->
         <div id="fly" class="card grey lighten-4">
             <div class="card-content">
-              <span class="card-title"><b>Fly</b> <a class="material-icons right" href="http://bryce.hoffho.us/ion/docs/#fly">link</a></span>
+              <span class="card-title"><b>Fly</b> <a class="material-icons right tooltipped" data-position="bottom" data-delay="250" data-tooltip="Click to copy quicklink" href="http://bryce.hoffho.us/ion/docs/#fly">link</a></span>
               <p><b>Description</b>: Toggles the player's flight mode <i>Survival, Creative, Adventure, or Spectator</i></p>
               <p><b>Permission</b>: <font color="#49b6ff">proton.fly, proton.fly.other</font></p>
             </div>
@@ -120,7 +120,7 @@
         <!-- TELEPORT -->
         <div id="teleport" class="card grey lighten-4">
             <div class="card-content">
-              <span class="card-title"><b>Teleport</b> <a class="material-icons right" href="http://bryce.hoffho.us/ion/docs/#teleport">link</a></span>
+              <span class="card-title"><b>Teleport</b> <a class="material-icons right tooltipped" data-position="bottom" data-delay="250" data-tooltip="Click to copy quicklink" href="http://bryce.hoffho.us/ion/docs/#teleport">link</a></span>
               <p><b>Description</b>: <i>Teleports a player to another player</i></p>
               <p><b>Permission</b>: <font color="#49b6ff">proton.tp</font></p>
             </div>
@@ -144,6 +144,152 @@
               <div id="code-teleport">
                 <p><img src="http://bryce.hoffho.us/i/ion/teleport-code.png"/></p>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/teleport.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
+              </div>
+            </div>
+          </div>
+        <!-- TPHERE -->
+        <div id="teleport-here" class="card grey lighten-4">
+            <div class="card-content">
+              <span class="card-title"><b>Teleport Here</b> <a class="material-icons right tooltipped" data-position="bottom" data-delay="250" data-tooltip="Click to copy quicklink" href="http://bryce.hoffho.us/ion/docs/#teleport-here">link</a></span>
+              <p><b>Description</b>: <i>Teleports a player to the sender</i></p>
+              <p><b>Permission</b>: <font color="#49b6ff">proton.tphere</font></p>
+            </div>
+            <div class="card-tabs grey lighten-4">
+              <ul class="tabs tabs-fixed-width grey lighten-3">
+                <li class="tab"><a class="active green-text darken-1" href="#usage-teleport-here">Usage</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#example-teleport-here">Example</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#code-teleport-here">Code</a></li>
+                <div class="indicator green darken-1" style="right: 661px; left: 0px;"></div>
+              </ul>
+            </div>
+            <div class="card-content grey lighten-5">
+              <div id="usage-teleport-here">
+                <p><b>Usage</b>: <code class="language-markup">/tphere [player]</code>
+                <p><b>Aliases</b>: /s
+              </div>
+              <div id="example-teleport-here">
+                <p><b>Example 1</b>: /tphere vxo <i>- Teleports vxo to the sender</i></p>
+                <p><b>Example 2</b>: /s vxo <i>- Teleports vxo to the sender</i></p>
+              </div>
+              <div id="code-teleport-here">
+                <p><img src="http://bryce.hoffho.us/i/ion/teleport-here-code.png"/></p>
+                <p><a href="http://bryce.hoffho.us/pastes/ion/teleport-here.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
+              </div>
+            </div>
+          </div>
+        <!-- TPALL -->
+        <div id="teleport-all" class="card grey lighten-4">
+            <div class="card-content">
+              <span class="card-title"><b>Teleport All</b> <a class="material-icons right tooltipped" data-position="bottom" data-delay="250" data-tooltip="Click to copy quicklink" href="http://bryce.hoffho.us/ion/docs/#teleport-all">link</a></span>
+              <p><b>Description</b>: <i>Teleports all players to the sender</i></p>
+              <p><b>Permission</b>: <font color="#49b6ff">proton.tpall</font></p>
+            </div>
+            <div class="card-tabs grey lighten-4">
+              <ul class="tabs tabs-fixed-width grey lighten-3">
+                <li class="tab"><a class="active green-text darken-1" href="#usage-teleport-all">Usage</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#example-teleport-all">Example</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#code-teleport-all">Code</a></li>
+                <div class="indicator green darken-1" style="right: 661px; left: 0px;"></div>
+              </ul>
+            </div>
+            <div class="card-content grey lighten-5">
+              <div id="usage-teleport-all">
+                <p><b>Usage</b>: <code class="language-markup">/tpall</code>
+                <p><b>Aliases</b>: None
+              </div>
+              <div id="example-teleport-all">
+                <p><b>Example 1</b>: /tpall <i>- Teleports all players to the sender</i></p>
+              </div>
+              <div id="code-teleport-all">
+                <p><img src="http://bryce.hoffho.us/i/ion/teleport-all-code.png"/></p>
+                <p><a href="http://bryce.hoffho.us/pastes/ion/teleport-all.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
+              </div>
+            </div>
+          </div>
+        <!-- TPCOORDS -->
+        <div id="teleport-coords" class="card grey lighten-4">
+            <div class="card-content">
+              <span class="card-title"><b>Teleport to Coordinates</b> <a class="material-icons right tooltipped" data-position="bottom" data-delay="250" data-tooltip="Click to copy quicklink" href="http://bryce.hoffho.us/ion/docs/#teleport-coords">link</a></span>
+              <p><b>Description</b>: <i>Teleports to specified coordinates</i></p>
+              <p><b>Permission</b>: <font color="#49b6ff">proton.tpcoords</font></p>
+            </div>
+            <div class="card-tabs grey lighten-4">
+              <ul class="tabs tabs-fixed-width grey lighten-3">
+                <li class="tab"><a class="active green-text darken-1" href="#usage-teleport-coords">Usage</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#example-teleport-coords">Example</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#code-teleport-coords">Code</a></li>
+                <div class="indicator green darken-1" style="right: 661px; left: 0px;"></div>
+              </ul>
+            </div>
+            <div class="card-content grey lighten-5">
+              <div id="usage-teleport-coords">
+                <p><b>Usage</b>: <code class="language-markup">/tpcoords [x] [y] [z]</code>
+                <p><b>Aliases</b>: /tppos
+              </div>
+              <div id="example-teleport-coords">
+                <p><b>Example 1</b>: /tpcoords 100 63 -125 <i>- Teleports the sender to X=100, Y=63, Z=-125</i></p>
+              </div>
+              <div id="code-teleport-coords">
+                <p><img src="http://bryce.hoffho.us/i/ion/teleport-coords-code.png"/></p>
+                <p><a href="http://bryce.hoffho.us/pastes/ion/teleport-coords.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
+              </div>
+            </div>
+          </div>
+        <!-- SETHOME -->
+        <div id="sethome" class="card grey lighten-4">
+            <div class="card-content">
+              <span class="card-title"><b>Sethome</b> <a class="material-icons right tooltipped" data-position="bottom" data-delay="250" data-tooltip="Click to copy quicklink" href="http://bryce.hoffho.us/ion/docs/#sethome">link</a></span>
+              <p><b>Description</b>: <i>Sets a home location to the sender's location</i></p>
+              <p><b>Permission</b>: <font color="#49b6ff">proton.sethome</font></p>
+            </div>
+            <div class="card-tabs grey lighten-4">
+              <ul class="tabs tabs-fixed-width grey lighten-3">
+                <li class="tab"><a class="active green-text darken-1" href="#usage-sethome">Usage</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#example-sethome">Example</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#code-sethome">Code</a></li>
+                <div class="indicator green darken-1" style="right: 661px; left: 0px;"></div>
+              </ul>
+            </div>
+            <div class="card-content grey lighten-5">
+              <div id="usage-sethome">
+                <p><b>Usage</b>: <code class="language-markup">/sethome</code>
+                <p><b>Aliases</b>: None
+              </div>
+              <div id="example-sethome">
+                <p><b>Example 1</b>: /sethome <i>- Sets the sender's home location to where the sender is standing</i></p>
+              </div>
+              <div id="code-sethome">
+                <p><img src="http://bryce.hoffho.us/i/ion/sethome-code.png"/></p>
+                <p><a href="http://bryce.hoffho.us/pastes/ion/sethome.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
+              </div>
+            </div>
+          </div>
+        <!-- HOME -->
+        <div id="home" class="card grey lighten-4">
+            <div class="card-content">
+              <span class="card-title"><b>Teleport</b> <a class="material-icons right tooltipped" data-position="bottom" data-delay="250" data-tooltip="Click to copy quicklink" href="http://bryce.hoffho.us/ion/docs/#home">link</a></span>
+              <p><b>Description</b>: <i>Teleports the sender to their home location</i></p>
+              <p><b>Permission</b>: <font color="#49b6ff">proton.home</font></p>
+            </div>
+            <div class="card-tabs grey lighten-4">
+              <ul class="tabs tabs-fixed-width grey lighten-3">
+                <li class="tab"><a class="active green-text darken-1" href="#usage-home">Usage</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#example-home">Example</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#code-home">Code</a></li>
+                <div class="indicator green darken-1" style="right: 661px; left: 0px;"></div>
+              </ul>
+            </div>
+            <div class="card-content grey lighten-5">
+              <div id="usage-home">
+                <p><b>Usage</b>: <code class="language-markup">/home</code>
+                <p><b>Aliases</b>: None
+              </div>
+              <div id="example-home">
+                <p><b>Example 1</b>: /home <i>- Teleports the sender to their home</i></p>
+              </div>
+              <div id="code-home">
+                <p><img src="http://bryce.hoffho.us/i/ion/home-code.png"/></p>
+                <p><a href="http://bryce.hoffho.us/pastes/ion/home.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
           </div>
