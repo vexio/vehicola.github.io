@@ -72,55 +72,19 @@
             </div>
             <div class="card-content grey lighten-5">
               <div id="usage">
-                <p><b>Usage</b> <code>/gamemode [creative|survival|adventure|spectator] (player)</code>
-                <p><b>Aliases</b> <code>/gm</code>
+                <p><b>Usage</b> <code class="language-markup">/gamemode [creative|survival|adventure|spectator] (player)</code>
+                <p><b>Aliases</b> <code class="language-markup">/gm</code>
               </div>
               <div id="example">
-                <p><b>Command</b>: <code></code></p>
+                <p><b>Example 1</b>: /gamemode creative vexio <i>- Changes Vexio's gamemode to creative</i></p>
+                <p><b>Example 2</b>: /gm s vexio <i>- Changes Vexio's gamemode to survival</i></p>
+                <p><b>Example 3</b>: /gma <i>- Changes the sender's gamemode to adventure</i></p>
+                <br><br>
                 <p><img src="http://bryce.hoffho.us/i/ion/gamemode-example.png"/></p>
               </div>
               <div id="code">
-                <pre>
-                  <code class="language-javascript">
-command /gamemode [<text>] [<text="%player%">]:
-	permission: proton.gamemode
-	description: Changes gamemode
-	permission message: {@em} [proton.gamemode]
-	usage: /gamemode [gamemode] (player)
-	aliases: /gm
-	trigger:
-		set {_p} to arg-2 parsed as player
-		if {_p} is online:
-			if arg 1 is not set:
-				send "&cUsage: /gamemode [num] (player)"
-			else if arg 1 is "creative" or "c" or "1":
-				set {_p}'s gamemode to creative
-				send "{@p} Your gamemode has been updated to {@h}Creative{@t}." to {_p}
-				if {_p} isn't sender:
-					send "{@p} {@h}%{_p}%{@t}'s gamemode was updated to {@h}Creative{@t}." to sender
-			else if arg 1 is "survival" or "s" or "0":
-				set {_p}'s gamemode to survival
-				send "{@p} Your gamemode has been updated to {@h}Survival{@t}." to {_p}
-				if {_p} isn't sender:
-					send "{@p} {@h}%{_p}%{@t}'s gamemode was updated to {@h}Survival{@t}." to sender
-			else if arg 1 is "adventure" or "a" or "2":
-				set {_p}'s gamemode to adventure
-				send "{@p} Your gamemode has been updated to {@h}Adventure{@t}." to {_p}
-				if {_p} isn't sender:
-					send "{@p} {@h}%{_p}%{@t}'s gamemode was updated to {@h}Adventure{@t}." to sender
-			else if arg 1 is "spectator" or "sp" or "3" or "spec":
-				set {_p}'s gamemode to spectator
-				send "{@p} Your gamemode has been updated to {@h}Spectator{@t}." to {_p}
-				if {_p} isn't sender:
-					send "{@p} {@h}%{_p}%{@t}'s gamemode was updated to {@h}Spectator{@t}." to sender
-			else:
-				send "{@a} Invalid Argument."
-				send "&cUsage: /gamemode &m%arg-1%&c (player)"
-		else:
-			send "{@a} Player is not online."
-			send "&cUsage: /gamemode %arg-1% &m%arg-2%"
-                  </code>
-                </pre>
+                <p><img src="http://bryce.hoffho.us/i/ion/gamemode-code.png"/></p>
+                <p><a href="http://bryce.hoffho.us/pastes/ion/gamemode.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">copy</i></a></p>
               </div>
             </div>
           </div>
