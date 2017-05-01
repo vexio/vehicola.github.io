@@ -56,6 +56,7 @@
 
       <!--   Icon Section   -->
       <div class="row">
+          <!-- GAMEMODE -->
           <div class="card grey lighten-4">
             <div class="card-content">
               <span class="card-title"><b>Gamemode</b></span>
@@ -72,15 +73,13 @@
             </div>
             <div class="card-content grey lighten-5">
               <div id="usage">
-                <p><b>Usage</b> <code class="language-markup">/gamemode [creative|survival|adventure|spectator] (player)</code>
-                <p><b>Aliases</b> <code class="language-markup">/gm</code>
+                <p><b>Usage</b>: <code class="language-markup">/gamemode [creative|survival|adventure|spectator] (player)</code>
+                <p><b>Aliases</b>: /gm
               </div>
               <div id="example">
                 <p><b>Example 1</b>: /gamemode creative vexio <i>- Changes Vexio's gamemode to creative</i></p>
                 <p><b>Example 2</b>: /gm s vexio <i>- Changes Vexio's gamemode to survival</i></p>
                 <p><b>Example 3</b>: /gma <i>- Changes the sender's gamemode to adventure</i></p>
-                <br><br>
-                <p><img src="http://bryce.hoffho.us/i/ion/gamemode-example.png"/></p>
               </div>
               <div id="code">
                 <p><img src="http://bryce.hoffho.us/i/ion/gamemode-code.png"/></p>
@@ -88,6 +87,67 @@
               </div>
             </div>
           </div>
+        <!-- FLY -->
+        <div class="card grey lighten-4">
+            <div class="card-content">
+              <span class="card-title"><b>Fly</b></span>
+              <p><b>Description</b>: Toggles the player's flight mode <i>Survival, Creative, Adventure, or Spectator</i></p>
+              <p><b>Permission</b>: <font color="#49b6ff">proton.fly, proton.fly.other</font></p>
+            </div>
+            <div class="card-tabs grey lighten-4">
+              <ul class="tabs tabs-fixed-width grey lighten-3">
+                <li class="tab"><a class="active green-text darken-1" href="#usage">Usage</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#example">Example</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#code">Code</a></li>
+                <div class="indicator green darken-1" style="right: 661px; left: 0px;"></div>
+              </ul>
+            </div>
+            <div class="card-content grey lighten-5">
+              <div id="usage">
+                <p><b>Usage</b>: <code class="language-markup">/fly (player)</code>
+                <p><b>Aliases</b>: None
+              </div>
+              <div id="example">
+                <p><b>Example 1</b>: /fly vexio <i>- Toggles flight mode for Vexio</i></p>
+                <p><b>Example 2</b>: /fly <i>- Toggles flight mode for the sender</i></p>
+              </div>
+              <div id="code">
+                <p><img src="http://bryce.hoffho.us/i/ion/fly-code.png"/></p>
+                <p><a href="http://bryce.hoffho.us/pastes/ion/fly.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
+              </div>
+            </div>
+          </div>
+        <!-- TELEPORT -->
+        <div class="card grey lighten-4">
+            <div class="card-content">
+              <span class="card-title"><b>Teleport</b></span>
+              <p><b>Description</b>: <i>Teleports a player to another player</i></p>
+              <p><b>Permission</b>: <font color="#49b6ff">proton.tp</font></p>
+            </div>
+            <div class="card-tabs grey lighten-4">
+              <ul class="tabs tabs-fixed-width grey lighten-3">
+                <li class="tab"><a class="active green-text darken-1" href="#usage">Usage</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#example">Example</a></li>
+                <li class="tab"><a class="green-text darken-1" href="#code">Code</a></li>
+                <div class="indicator green darken-1" style="right: 661px; left: 0px;"></div>
+              </ul>
+            </div>
+            <div class="card-content grey lighten-5">
+              <div id="usage">
+                <p><b>Usage</b>: <code class="language-markup">/tp [player] (player)</code>
+                <p><b>Aliases</b>: None
+              </div>
+              <div id="example">
+                <p><b>Example 1</b>: /tp vexio vxo <i>- Teleports Vexio to vxo</i></p>
+                <p><b>Example 2</b>: /tp vxo <i>- Teleports the sender to vxo</i></p>
+              </div>
+              <div id="code">
+                <p><img src="http://bryce.hoffho.us/i/ion/teleport-code.png"/></p>
+                <p><a href="http://bryce.hoffho.us/pastes/ion/teleport.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
+              </div>
+            </div>
+          </div>
+        <!-- end of documentation -->
       </div>
 
     </div>
