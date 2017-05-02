@@ -152,7 +152,31 @@ command /gamemode [<!text>] [<!text="%player%">]:
                 <p><b>Example 2</b>: /fly <i>- Toggles flight mode for the sender</i></p>
               </div>
               <div id="code-fly">
-                <p><img src="http://bryce.hoffho.us/i/ion/fly-code.png"/></p>
+                <pre class="language-css"><code>
+command /fly [<!text="%player%">]:
+	permission: proton.fly
+	description: Toggles flight
+	permission message: {@em} [proton.fly]
+	usage: /fly (player)
+	trigger:
+		set {_p} to arg-1 parsed as player
+		if {_p} is online:
+			if {proton.fly::%{_p}%} is true:
+				delete {proton.fly::%{_p}%}
+				set {_p}'s fly mode to false
+				send "{@p} Flight mode {@h}disabled{@t}." to {_p}
+				if arg 1 isn't sender:
+					send "{@p} {@h}%{_p}%{@t}'s flight mode was {@h}disabled{@t}." to sender
+			else:
+				set {proton.fly::%{_p}%} to true
+				set {_p}'s fly mode to true
+				send "{@p} Flight mode {@h}enabled{@t}." to {_p}
+				if arg 1 isn't sender:
+					send "{@p} {@h}%{_p}%{@t}'s flight mode was {@h}enabled{@t}." to sender
+		else:
+			send "{@a} Player is not online."
+			send "&cUsage: /fly &m%arg-1%"
+                </code></pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/fly.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -182,7 +206,40 @@ command /gamemode [<!text>] [<!text="%player%">]:
                 <p><b>Example 2</b>: /tp vxo <i>- Teleports the sender to vxo</i></p>
               </div>
               <div id="code-teleport">
-                <p><img src="http://bryce.hoffho.us/i/ion/teleport-code.png"/></p>
+		      <pre class="language-css"><code>
+command /tp [<!player>] [<!player>]:
+	permission: proton.tp
+	description: Teleports to player
+	permission message: {@em} [proton.tp]
+	usage: /tp [player] (player)
+	trigger:
+		if arg 1 is not set:
+			send "&cUsage: /tp [player] (player)"
+		else if arg 1 is set:
+			if arg 2 is not set:
+				if {proton.teleporting::%sender%} is true:
+					send "{@a} &cPlayer is already being teleported"
+					stop
+				else:
+					set {proton.teleporting::%sender%} to true
+					set {proton.lastLoc::%sender%} to sender's location
+					teleport sender to arg-1
+					send "{@p} Teleported to {@h}%arg-1%{@t}." to sender
+					wait 1 second
+					delete {proton.teleporting::%sender%}
+			else:
+				if {proton.teleporting::%arg-1%} is true:
+					send "&c&oPlayer is already being teleported"
+					stop
+				else:
+					set {proton.teleporting::%arg-1%} to true
+					set {proton.lastLoc::%arg-1%} to arg-1's location
+					teleport arg-1 to arg-2
+					send "{@p} Teleported {@h}%arg-1%{@t} to {@t}%arg-2%{@t}" to sender
+					send "{@p} Teleported to {@h}%arg-2%{@t}." to arg-1
+					wait 1 second
+					delete {proton.teleporting::%arg-1%}
+			</code></pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/teleport.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -212,7 +269,19 @@ command /gamemode [<!text>] [<!text="%player%">]:
                 <p><b>Example 2</b>: /s vxo <i>- Teleports vxo to the sender</i></p>
               </div>
               <div id="code-teleport-here">
-                <p><img src="http://bryce.hoffho.us/i/ion/teleport-here-code.png"/></p>
+		      <pre class="language-css"><code>
+command /tphere [<!player>]:
+	permission: proton.tphere
+	description: Teleports a player to sender
+	permission message: {@em} [proton.tphere]
+	usage: /tphere [player]
+	aliases: /s
+	trigger:
+		if arg 1 is not set:
+			send "&cUsage: /tphere [player]"
+		else:
+			make player execute command "/tp %arg 1% %sender%"
+			</code></pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/teleport-here.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -241,7 +310,29 @@ command /gamemode [<!text>] [<!text="%player%">]:
                 <p><b>Example 1</b>: /tpall <i>- Teleports all players to the sender</i></p>
               </div>
               <div id="code-teleport-all">
-                <p><img src="http://bryce.hoffho.us/i/ion/teleport-all-code.png"/></p>
+		      <pre class="language-css"><code>
+command /tpall:
+	permission: proton.tpall
+	description: Teleports all players to sender
+	permission message: {@em}
+	usage: /tpall
+	trigger:
+		set {_loc} to sender's location
+		set {_count} to 0
+		set {_countTotal} to 0
+		set {_total} to number of all players
+		loop all players:
+			teleport loop-player to sender's location
+			add 1 to {_count}
+			add 1 to {_countTotal}
+			if {_count} = 20:
+				set {_count} to 0
+				send "{@p} Sent %{_countTotal}% people. Next group in {@h}3s{@t}. &8[&e%{_countTotal}%&7/&e%{_total}%&8]"
+				wait 3 seconds
+		delete {_loc}
+		send "{@p} Teleported all players to your location"
+		broadcast "{@p} Teleported to {@h}%sender%{@t}."
+			</code></pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/teleport-all.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -270,7 +361,41 @@ command /gamemode [<!text>] [<!text="%player%">]:
                 <p><b>Example 1</b>: /tpcoords 100 63 -125 <i>- Teleports the sender to X=100, Y=63, Z=-125</i></p>
               </div>
               <div id="code-teleport-coords">
-                <p><img src="http://bryce.hoffho.us/i/ion/teleport-coords-code.png"/></p>
+		      <pre class="language-css"><code>
+command /tpcoords [<!integer>] [<!integer>] [<!integer>]:
+	permission: proton.tpcoords
+	aliases: /tppos
+	permission message: {@em} [proton.tpcoords]
+	usage: /tpcoords [x] [y] [z]
+	trigger:
+		if arg 1 is not set:
+			send "&cUsage: /tpcoords [x] [y] [z]"
+		else if arg 1 is set:
+			if arg 2 is set:
+				if arg 3 is set:
+					if {proton.teleporting::%arg-1%} is true:
+						send "{@a} &cPlayer is already being teleported"
+						stop
+					else:
+						set {_x} to arg-1
+						set {_z} to arg-3
+						add 0.5 to {_x}
+						add 0.5 to {_z}
+						set {proton.teleporting::%arg-1%} to true
+						set {proton.lastLoc::%sender%} to sender's location
+						set {_world} to sender's world
+						set {_loc} to location({_x}, arg-2, {_z}, {_world})
+						teleport sender to {_loc}
+						send "{@p} Teleported to {@h}%{_x}%, %arg-2%, %{_z}%{@t}."
+						wait 1 second
+						delete {proton.teleporting::%arg-1%}
+				else:
+					send "{@a} Invalid Argument."
+					send "&cUsage: /tpcoords [x] [y] [z]"
+			else:
+				send "{@a} Invalid Argument."
+				send "&cUsage: /tpcoords [x] [y] [z]"
+			</code></pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/teleport-coords.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -299,7 +424,18 @@ command /gamemode [<!text>] [<!text="%player%">]:
                 <p><b>Example 1</b>: /sethome <i>- Sets the sender's home location to where the sender is standing</i></p>
               </div>
               <div id="code-sethome">
-                <p><img src="http://bryce.hoffho.us/i/ion/sethome-code.png"/></p>
+		      <pre class="language-css"><code>
+command /sethome:
+	permission: proton.sethome
+	permission message: {@em} [proton.sethome]
+	usage: /sethome
+	trigger:
+		set {proton.home::%sender's uuid%} to sender's location
+		set {_x} to sender's x-coordinate
+		set {_y} to sender's y-coordinate
+		set {_z} to sender's z-coordinate
+		send "{@p} Home set at {@h}%{_x}%, %{_y}%, %{_z}%{@t}."
+			</code></pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/sethome.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -328,7 +464,27 @@ command /gamemode [<!text>] [<!text="%player%">]:
                 <p><b>Example 1</b>: /home <i>- Teleports the sender to their home</i></p>
               </div>
               <div id="code-home">
-                <p><img src="http://bryce.hoffho.us/i/ion/home-code.png"/></p>
+		      <pre class="language-css"><code>
+command /home:
+	permission: proton.home
+	permission message: {@em} [proton.home]
+	usage: /home
+	trigger:
+		if {proton.home::%sender's uuid%} is set:
+			if {proton.teleporting::%sender%} is true:
+				send "{@a} &cPlayer is already being teleported"
+				stop
+			else:
+				set {proton.teleporting::%sender%} to true
+				set {proton.lastLoc::%sender%} to sender's location
+				teleport sender to {proton.home::%sender's uuid%}
+				send "{@p} Teleported to your home location."
+				wait 1 second
+				delete {proton.teleporting::%sender%}
+		else:
+			send "{@a} &cYou do not have a home set."
+			send "&cUsage: /sethome"
+			</code></pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/home.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -358,17 +514,18 @@ command /gamemode [<!text>] [<!text="%player%">]:
               </div>
               <div id="code-setspawn">
                 <pre class="language-css"><code>
-command /sethome:
-	permission: proton.sethome
-	permission message: {@em} [proton.sethome]
-	usage: /sethome
+			<pre class="language-css"><code>
+command /setspawn:
+	permission: proton.setspawn
+	permission message: {@em} [proton.setspawn]
+	usage: /setspawn
 	trigger:
-		set {proton.home::%sender's uuid%} to sender's location
+		set {proton.spawn} to sender's location
 		set {_x} to sender's x-coordinate
 		set {_y} to sender's y-coordinate
 		set {_z} to sender's z-coordinate
-		send "{@p} Home set at {@h}%{_x}%, %{_y}%, %{_z}%{@t}."
-                </code></pre>
+		send "{@p} Spawn location set to {@h}%{_x}%, %{_y}%, %{_z}%{@t}."
+                	</code></pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/setspawn.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
