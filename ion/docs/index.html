@@ -85,7 +85,7 @@
               </div>
               <div id="code-gamemode">
                 <pre>
-command /gamemode &lt;text&gt; &lt;text="%player%"&gt;:
+command /gamemode [&lt;text&gt;] [&lt;text="%player%"&gt;]:
 	permission: proton.gamemode
 	description: Changes gamemode
 	permission message: {@em} [proton.gamemode]
@@ -153,7 +153,7 @@ command /gamemode &lt;text&gt; &lt;text="%player%"&gt;:
               </div>
               <div id="code-fly">
                 <pre class="language-markup"><code>
-command /fly [<!text="%player%">]:
+command /fly [&lt;text="%player%"&gt;]:
 	permission: proton.fly
 	description: Toggles flight
 	permission message: {@em} [proton.fly]
@@ -207,7 +207,7 @@ command /fly [<!text="%player%">]:
               </div>
               <div id="code-teleport">
 		      <pre class="language-markup"><code>
-command /tp [<!player>] [<!player>]:
+command /tp [&lt;player&gt;] [&lt;player&gt;]:
 	permission: proton.tp
 	description: Teleports to player
 	permission message: {@em} [proton.tp]
@@ -270,7 +270,7 @@ command /tp [<!player>] [<!player>]:
               </div>
               <div id="code-teleport-here">
 		      <pre class="language-markup"><code>
-command /tphere [<!player>]:
+command /tphere [&lt;player&gt;]:
 	permission: proton.tphere
 	description: Teleports a player to sender
 	permission message: {@em} [proton.tphere]
@@ -362,7 +362,7 @@ command /tpall:
               </div>
               <div id="code-teleport-coords">
 		      <pre class="language-markup"><code>
-command /tpcoords [<!integer>] [<!integer>] [<!integer>]:
+command /tpcoords [&lt;integer&gt;] [&lt;integer&gt;] [&lt;integer&gt;]:
 	permission: proton.tpcoords
 	aliases: /tppos
 	permission message: {@em} [proton.tpcoords]
