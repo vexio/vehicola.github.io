@@ -31,8 +31,8 @@ pre[class*="language-"] {
 pre[class*="language-"] {
 	position: relative;
 	margin: .5em 0;
-	box-shadow: -1px 0px 0px 0px #929292, 0px 0px 0px 1px #dfdfdf;
-	border-left: 10px solid #929292;
+	box-shadow: -1px 0px 0px 0px #6f6f6f, 0px 0px 0px 1px #dfdfdf;
+	border-left: 10px solid #6f6f6f;
 	background-color: #fdfdfd;
 	background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
 	background-size: 3em 3em;
