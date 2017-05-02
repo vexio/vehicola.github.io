@@ -1,0 +1,10 @@
+command /sethome:
+	permission: proton.sethome
+	permission message: {@em} [proton.sethome]
+	usage: /sethome
+	trigger:
+		set {proton.home::%sender's uuid%} to sender's location
+		set {_x} to sender's x-coordinate
+		set {_y} to sender's y-coordinate
+		set {_z} to sender's z-coordinate
+		send "{@p} Home set at {@h}%{_x}%, %{_y}%, %{_z}%{@t}."
