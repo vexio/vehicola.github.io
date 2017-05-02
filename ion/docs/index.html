@@ -152,7 +152,7 @@ command /gamemode [&lt;text&gt;] [&lt;text="%player%"&gt;]:
                 <p><b>Example 2</b>: /fly <i>- Toggles flight mode for the sender</i></p>
               </div>
               <div id="code-fly">
-                <pre class="language-markup"><code>
+                <pre class="language-markup">
 command /fly [&lt;text="%player%"&gt;]:
 	permission: proton.fly
 	description: Toggles flight
@@ -176,7 +176,7 @@ command /fly [&lt;text="%player%"&gt;]:
 		else:
 			send "{@a} Player is not online."
 			send "&cUsage: /fly &m%arg-1%"
-                </code></pre>
+                </pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/fly.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -206,7 +206,7 @@ command /fly [&lt;text="%player%"&gt;]:
                 <p><b>Example 2</b>: /tp vxo <i>- Teleports the sender to vxo</i></p>
               </div>
               <div id="code-teleport">
-		      <pre class="language-markup"><code>
+		      <pre class="language-markup">
 command /tp [&lt;player&gt;] [&lt;player&gt;]:
 	permission: proton.tp
 	description: Teleports to player
@@ -239,7 +239,7 @@ command /tp [&lt;player&gt;] [&lt;player&gt;]:
 					send "{@p} Teleported to {@h}%arg-2%{@t}." to arg-1
 					wait 1 second
 					delete {proton.teleporting::%arg-1%}
-			</code></pre>
+			</pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/teleport.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -281,7 +281,7 @@ command /tphere [&lt;player&gt;]:
 			send "&cUsage: /tphere [player]"
 		else:
 			make player execute command "/tp %arg 1% %sender%"
-			</code></pre>
+			</pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/teleport-here.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -310,7 +310,7 @@ command /tphere [&lt;player&gt;]:
                 <p><b>Example 1</b>: /tpall <i>- Teleports all players to the sender</i></p>
               </div>
               <div id="code-teleport-all">
-		      <pre class="language-markup"><code>
+		      <pre class="language-markup">
 command /tpall:
 	permission: proton.tpall
 	description: Teleports all players to sender
@@ -332,7 +332,7 @@ command /tpall:
 		delete {_loc}
 		send "{@p} Teleported all players to your location"
 		broadcast "{@p} Teleported to {@h}%sender%{@t}."
-			</code></pre>
+			</pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/teleport-all.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -361,7 +361,7 @@ command /tpall:
                 <p><b>Example 1</b>: /tpcoords 100 63 -125 <i>- Teleports the sender to X=100, Y=63, Z=-125</i></p>
               </div>
               <div id="code-teleport-coords">
-		      <pre class="language-markup"><code>
+		      <pre class="language-markup">
 command /tpcoords [&lt;integer&gt;] [&lt;integer&gt;] [&lt;integer&gt;]:
 	permission: proton.tpcoords
 	aliases: /tppos
@@ -395,7 +395,7 @@ command /tpcoords [&lt;integer&gt;] [&lt;integer&gt;] [&lt;integer&gt;]:
 			else:
 				send "{@a} Invalid Argument."
 				send "&cUsage: /tpcoords [x] [y] [z]"
-			</code></pre>
+			</pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/teleport-coords.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -424,7 +424,7 @@ command /tpcoords [&lt;integer&gt;] [&lt;integer&gt;] [&lt;integer&gt;]:
                 <p><b>Example 1</b>: /sethome <i>- Sets the sender's home location to where the sender is standing</i></p>
               </div>
               <div id="code-sethome">
-		      <pre class="language-markup"><code>
+		      <pre class="language-markup">
 command /sethome:
 	permission: proton.sethome
 	permission message: {@em} [proton.sethome]
@@ -435,7 +435,7 @@ command /sethome:
 		set {_y} to sender's y-coordinate
 		set {_z} to sender's z-coordinate
 		send "{@p} Home set at {@h}%{_x}%, %{_y}%, %{_z}%{@t}."
-			</code></pre>
+			</pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/sethome.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -464,7 +464,7 @@ command /sethome:
                 <p><b>Example 1</b>: /home <i>- Teleports the sender to their home</i></p>
               </div>
               <div id="code-home">
-		      <pre class="language-markup"><code>
+		      <pre class="language-markup">
 command /home:
 	permission: proton.home
 	permission message: {@em} [proton.home]
@@ -484,7 +484,7 @@ command /home:
 		else:
 			send "{@a} &cYou do not have a home set."
 			send "&cUsage: /sethome"
-			</code></pre>
+			</pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/home.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
@@ -514,7 +514,7 @@ command /home:
               </div>
               <div id="code-setspawn">
                 <pre class="language-css">
-			<pre class="language-markup"><code>
+			<pre class="language-markup">
 command /setspawn:
 	permission: proton.setspawn
 	permission message: {@em} [proton.setspawn]
@@ -525,7 +525,7 @@ command /setspawn:
 		set {_y} to sender's y-coordinate
 		set {_z} to sender's z-coordinate
 		send "{@p} Spawn location set to {@h}%{_x}%, %{_y}%, %{_z}%{@t}."
-                	</code></pre>
+                	</pre>
                 <p><a href="http://bryce.hoffho.us/pastes/ion/setspawn.txt"class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">content_copy</i></a></p>
               </div>
             </div>
