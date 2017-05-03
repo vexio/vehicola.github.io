@@ -1,1 +1,1 @@
-Sitemap: http://bryce.hoffho.us/
+Sitemap: http://bryce.hoffho.us/sitemap.xml
