@@ -12,17 +12,20 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <nav class="red lighten-1" role="navigation">
+  <nav class="red darken-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="http://bryce.hoffho.us/" class="brand-logo"><img src="http://emojipedia-us.s3.amazonaws.com/cache/de/fa/defa0e7fab3650cfcf2b4562f94230a5.png" alt="B" style="width:62px;height:62px;"></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/repos"><i class="material-icons left">build</i>Repos</a></li>
-        <li><a href="/mario"><i class="material-icons left">games</i>Mario</a></li>
+        <li><a href="/mario"><i class="material-icons left">games</i>Games</a></li>
         <li><a href="/photos"><i class="material-icons left">photo</i>Photos</a></li>
       </ul>
-
+      <ul id="navbar-dropdown-games" class="dropdown-content">
+        <li><a href="/mario">Mario</a></li>
+        <li>More coming soon</li>
+      </ul>
       <ul id="nav-mobile" class="side-nav">
         <li><a href="/repos"><i class="material-icons left">build</i>Repos</a></li>
-        <li><a href="/mario"><i class="material-icons">games</i>Mario</a></li>
+        <li><a href="/mario" class="dropdown-button" data-activates="navbar-dropdown-games" data-beloworgin="true"><i class="material-icons">games</i>Mario</a></li>
         <li><a href="/photos"><i class="material-icons left">photo</i>Photos</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -85,7 +88,7 @@
     </div>
   </div>
 
-  <footer class="page-footer red lighten-1">
+  <footer class="page-footer red darken-2">
     <div class="container">
       <div class="rows">
         <div class="col l3 s12">
