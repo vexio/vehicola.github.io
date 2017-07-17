@@ -1,0 +1,80 @@
+options:
+    p: &6&l(!)&7
+    t: &7
+    h: &a
+    permissionError: &4&lERROR &cInsufficient permissions
+    error: &4&lERROR&c
+function generateCage(p: player):
+    set {_loc1} to location({_p}'s x-coordinate - 1, {_p}'s y-coordinate - 1, {_p}'s z-coordinate - 1, {_p}'s world)
+    set {_loc2} to location({_p}'s x-coordinate + 1, {_p}'s y-coordinate + 4, {_p}'s z-coordinate + 1, {_p}'s world)
+    set {_m} to {synced_.inv.equipped.cageMaterial::%{_p}%}
+    if {_m} is not set:
+        set {_m} to glass block
+    broadcast "%{_m}%"
+    loop blocks from {_loc1} to {_loc2}:
+        evaluate "set loop-blocks to {_m}"
+    set {_loc1} to location({_p}'s x-coordinate, {_p}'s y-coordinate, {_p}'s z-coordinate, {_p}'s world)
+    set {_loc2} to location({_p}'s x-coordinate, {_p}'s y-coordinate + 1, {_p}'s z-coordinate, {_p}'s world)
+    loop blocks from {_loc1} to {_loc2}:
+        evaluate "set loop-blocks to air"
+function deleteCage(p: player):
+    set {_loc1} to location({_p}'s x-coordinate - 1, {_p}'s y-coordinate - 1, {_p}'s z-coordinate - 1, {_p}'s world)
+    set {_loc2} to location({_p}'s x-coordinate + 1, {_p}'s y-coordinate + 4, {_p}'s z-coordinate + 1, {_p}'s world)
+    loop blocks from {_loc1} to {_loc2}:
+        evaluate "set loop-blocks to air"
+function scatterPlayers(t: text):
+    if {_t} = "solo":
+        set {_s} to size of all players
+        loop 50 times:
+            set {scattered::%loop-num%} to false
+        loop {_s} times:
+            loop all players:
+                if {scattered::%loop-num-1%} is false:
+                    teleport loop-player to {scatter.locations::%loop-num-1%}
+                    set {scattered::%loop-num-1%} to true
+                    broadcast "&7scattered %loop-num%&r %loop-player%"
+                    generateCage(loop-player)
+                    exit loop
+        broadcast "{@p} Scattering finished"
+command /findScatterLocations [<integer=25>]:
+    permission: command.findScatterLocations
+    permission message: {@permissionError} [command.findScatterLocations]
+    trigger:
+        send "{@p} Searching for possible scatter locations..."
+        set {_found} to 0
+        loop blocks in radius (arg-1) around sender's location:
+            if loop-block is a gold block:
+                if block below loop-block is a beacon:
+                    set {_loc} to location(loop-block's x-coordinate, loop-blocks's y-coordinate + 1, loop-block's z-coordinate, sender's world)
+                    add {_loc} to {scatter.locations::*}
+                    add 1 to {_found}
+                    set block below loop-block to redstone block
+        if {_found} >= 1:
+            send "{@p} Found a total of &a%{_found}% Scatter Locations{@t}."
+        else:
+            send "{@error} Could not find any valid scatter locations."
+command /clearScatterLocations:
+    permission: command.clearScatterLocations
+    permission message: {@permissionError} [command.clearScatterLocations]
+    trigger:
+        delete {scatter.locations::*}
+        send "{@p} Deleted all set scatter locations"
+command /viewScatterLocations:
+    permission: command.viewScatterLocations
+    permission message: {@permissionError} [command.viewScatterLocations]
+    trigger:
+        send "{@p} &aCurrently set scatter locations"
+        send "{@p} &aTotal Locations &e%size of {scatter.locations::*}%"
+        loop {scatter.locations::*}:
+            jsonProton("%sender%", "&o%loop-value%||ttp:&7Click to teleport to%nl%&7Value &d%loop-index%||cmd:/tpScatterLocation %loop-index%")
+command /tpScatterLocation [<integer>]:
+    permission: command.tpScatterLocations
+    permission message: {@permissionError} [command.tpScatterLocations]
+    trigger:
+        teleport sender to {scatter.locations::%arg-1%}
+command /scatter:
+    trigger:
+        scatterPlayers("solo")
+command /cage:
+    trigger:
+        generateCage(sender)
